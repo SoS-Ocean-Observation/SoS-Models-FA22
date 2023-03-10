@@ -21,4 +21,5 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 *  The Command Ship
 	* The command ship acts as the recharging station and data center for AUVs and UAVs agents to drop their collected data.
 	*  State Flow Chart:
-	
+	![the command ship state flow chart](https://user-images.githubusercontent.com/112024195/224406542-93bacc56-f6cc-4e04-a570-e6ae914bbd15.JPG)
+
