@@ -13,14 +13,6 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 2. Connecting to the mit server
 	* Sample connecting page once you start the anylogic application
 	![connection](https://user-images.githubusercontent.com/112024195/224403687-c17208f0-191e-46bd-ab34-9e7f7bb3b926.png)
-
-	
-	
-	
-	
-	
-	![Image](F:\study\![connection](https://user-images.githubusercontent.com/112024195/224403648-74e754c2-913f-4981-a55f-ae05ba0edcef.png)
-project\markdown\connection.jpg "connecting the server")
 		* url : > aa-anylogic-lic.mit.edu
 		* port: > 8443
 
