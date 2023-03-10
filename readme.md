@@ -44,7 +44,7 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* private double **Duration**: represents the duration of the scientific event will last in hours
 		* private double **Volume**: represents how much data can be collected by agents from this scientific event
 		* private String **type**: represents the type of this scientific event, it can be seamount, fault, and front
-		* private double[] **location**: represents the location in (lon,lat) of the scientific event.
-		
+		* private double[] **location**: represents the location in (lon,lat) of the scientific event
+		* private String **name**: the name of the scientific event
 
 
