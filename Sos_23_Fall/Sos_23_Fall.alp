@@ -18,11 +18,12 @@
 			<Name><![CDATA[Main]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<StartupCode><![CDATA[initial_island_circle(islands_distance);
-commandShip.initialize_commandShip(all_Islands,islands_distance);
-//commandShip.mo
-//initial AUV
+commandShip.initialize_commandShip(all_Islands,
+		islands_distance);
+// commandShip.mo
+// initial AUV
 
-for (int i = 0; i < auvCollection.size(); i++){
+for (int i = 0; i < auvCollection.size(); i++) {
 	auvCollection.get(i).initializeAgent();
 }]]></StartupCode>
 			<Generic>false</Generic>
@@ -129,7 +130,7 @@ for (int i = 0; i < auvCollection.size(); i++){
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[GISNetwork]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[new GISNetwork(map,"myNetwork");]]></Code>
+							<Code><![CDATA[new GISNetwork(map, "myNetwork")]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -159,10 +160,7 @@ for (int i = 0; i < auvCollection.size(); i++){
 					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
 						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
 						<ElementClass><![CDATA[String]]></ElementClass>
-						<ValueElementClass><![CDATA[Integer]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ }]]></Code>
-						</CollectionInitializer>
+						<ValueElementClass><![CDATA[Double]]></ValueElementClass>
 					</Properties>
 
 				</Variable>
@@ -180,7 +178,8 @@ for (int i = 0; i < auvCollection.size(); i++){
 						<ElementClass><![CDATA[GISPoint]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ Island1, Island2, Island3, Island4, Island5, Island6, Island7 }]]></Code>
+							<Code><![CDATA[{Island1, Island2, Island3, Island4, Island5, Island6,
+		Island7}]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -188,7 +187,7 @@ for (int i = 0; i < auvCollection.size(); i++){
 				<Variable Class="CollectionVariable">
 					<Id>1675449915142</Id>
 					<Name><![CDATA[auvCollection]]></Name>
-					<X>-370</X><Y>320</Y>
+					<X>-360</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -198,8 +197,89 @@ for (int i = 0; i < auvCollection.size(); i++){
 						<ElementClass><![CDATA[AUV]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ AUV_1, AUV_2 }]]></Code>
+							<Code><![CDATA[{AUV_1, AUV_2}]]></Code>
 						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1675972912092</Id>
+					<Name><![CDATA[isLandsRegions]]></Name>
+					<Description><![CDATA[this is the collection of islands.]]></Description>
+					<X>-360</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[GISRegion]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{island_1_region, island_2_region, island_3_region,
+		island_4_region, island_5_region, island_6_region,
+		island_7_region, island_8_region, island_9_region}]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059691</Id>
+					<Name><![CDATA[all_islands_north]]></Name>
+					<X>-360</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059694</Id>
+					<Name><![CDATA[all_islands_east]]></Name>
+					<X>-360</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059696</Id>
+					<Name><![CDATA[all_islands_west]]></Name>
+					<X>-360</X><Y>490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059698</Id>
+					<Name><![CDATA[all_islands_south]]></Name>
+					<X>-360</X><Y>510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
 					</Properties>
 
 				</Variable>
@@ -235,40 +315,7 @@ for (int i = 0; i < auvCollection.size(); i++){
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>200</X><Y>0</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1674817869840</Id>
-					<Name><![CDATA[connector1]]></Name>
-					<X>640</X><Y>780</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[sos_23_fall]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[tempSinkforDeletion]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Sink]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[sos_23_fall]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[ActiveScience]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Queue]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-220</X><Y>0</Y></Point>
+						<Point><X>180</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -301,7 +348,40 @@ for (int i = 0; i < auvCollection.size(); i++){
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>200</X><Y>0</Y></Point>
+						<Point><X>180</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1677861255473</Id>
+					<Name><![CDATA[connector1]]></Name>
+					<X>640</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[tempSinkforDeletion]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Sink]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[ActiveScience]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Queue]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-240</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -319,15 +399,55 @@ for (int i = 0; i < auvCollection.size(); i++){
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
 						<Name><![CDATA[islands_distance]]></Name>
-						<Type><![CDATA[HashMap<String,Integer>]]></Type>
+						<Type><![CDATA[HashMap<String,Double>]]></Type>
 					</Parameter>
-					<Body><![CDATA[islands_distance.put("Island1",2500);
-islands_distance.put("Island2",7600);
-islands_distance.put("Island3",5000);
-islands_distance.put("Island4",36500);
-islands_distance.put("Island5",14000);
-islands_distance.put("Island6",20000);
-islands_distance.put("Island7",7000);]]></Body>
+					<Body><![CDATA[islands_distance.put("Island1", 2500.0);
+islands_distance.put("Island2", 7600.0);
+islands_distance.put("Island3", 5000.0);
+islands_distance.put("Island4", 36500.0);
+islands_distance.put("Island5", 14000.0);
+islands_distance.put("Island6", 20000.0);
+islands_distance.put("Island7", 7000.0);
+
+all_islands_south.put("Island1", Island1_south);
+all_islands_north.put("Island1", Island1_north);
+all_islands_west.put("Island1", Island1_west);
+all_islands_east.put("Island1", Island1_east);
+
+all_islands_south.put("Island2", Island2_south);
+all_islands_north.put("Island2", Island2_north);
+all_islands_west.put("Island2", Island2_west);
+all_islands_east.put("Island2", Island2_east);
+
+all_islands_south.put("Island2", Island2_south);
+all_islands_north.put("Island2", Island2_north);
+all_islands_west.put("Island2", Island2_west);
+all_islands_east.put("Island2", Island2_east);
+
+all_islands_south.put("Island3", Island3_south);
+all_islands_north.put("Island3", Island3_north);
+all_islands_west.put("Island3", Island3_west);
+all_islands_east.put("Island3", Island3_east);
+
+all_islands_south.put("Island4", Island4_south);
+all_islands_north.put("Island4", Island4_north);
+all_islands_west.put("Island4", Island4_west);
+all_islands_east.put("Island4", Island4_east);
+
+all_islands_south.put("Island5", Island5_south);
+all_islands_north.put("Island5", Island5_north);
+all_islands_west.put("Island5", Island5_west);
+all_islands_east.put("Island5", Island5_east);
+
+all_islands_south.put("Island6", Island6_south);
+all_islands_north.put("Island6", Island6_north);
+all_islands_west.put("Island6", Island6_west);
+all_islands_east.put("Island6", Island6_east);
+
+all_islands_south.put("Island7", Island7_south);
+all_islands_north.put("Island7", Island7_north);
+all_islands_west.put("Island7", Island7_west);
+all_islands_east.put("Island7", Island7_east);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -378,7 +498,7 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[initialLocation]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[new double[]{30.0,-30.0};]]></Code>
+								<Code><![CDATA[new double[]{36.0, -26.0}]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -429,7 +549,9 @@ islands_distance.put("Island7",7000);]]></Body>
 				<EmbeddedObject>
 					<Id>1674801703633</Id>
 					<Name><![CDATA[SeamountSource]]></Name>
-					<Description><![CDATA[spawn seamount scientific events]]></Description>
+					<Description><![CDATA[spawn seamount scientific events
+//todo: weather
+]]></Description>
 					<X>150</X><Y>770</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -518,15 +640,16 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[locationLatitude]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//38.393 + normal(0.15)
-38.393 + normal(10)]]></Code>
+								<Code><![CDATA[// 38.393 + normal(0.15)
+38.393 + normal(1)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLongitude]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//-26.6 + normal(0.1)
--26.6 + normal(10)]]></Code>
+								<Code><![CDATA[// -26.6 + normal(0.1)
+// -26.6 + normal(10)
+-28.6 + normal(1)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -550,7 +673,7 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[speed]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[1 //default, but no uses]]></Code>
+								<Code><![CDATA[1 // default, but no uses]]></Code>
 								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 							</Value>
 						</Parameter>
@@ -652,15 +775,17 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.setType("Seamount"); //set the type of the event
-String s=String.valueOf(count); 
+								<Code><![CDATA[agent.setType("Seamount"); // set the type of the event
+String s = String.valueOf(count);
 count = count + 1;
- 
+
 agent.setScienceName(s);
-agent.setLocation(agent.getX(),agent.getY());//set location of the current event
+agent.setLocation(agent.getX(), agent.getY());// set
+												// location
+												// of the
+												// current
+												// event
 traceln("agent exit Source " + agent.getScienceName());
-
-
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -710,7 +835,7 @@ traceln("agent exit Source " + agent.getScienceName());
 				<EmbeddedObject>
 					<Id>1674817680283</Id>
 					<Name><![CDATA[ActiveScience]]></Name>
-					<X>380</X><Y>760</Y>
+					<X>360</X><Y>760</Y>
 					<Label><X>-10</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -750,6 +875,10 @@ traceln("agent exit Source " + agent.getScienceName());
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[timeout]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[50]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[enablePreemption]]></Name>
@@ -766,15 +895,19 @@ traceln("agent exit Source " + agent.getScienceName());
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//assign to command ship , change it later
+								<Code><![CDATA[// assign to command ship , change it later
+/*
+ * while( commandShip.getAssigned() == false ){
+ * commandShip.setAssigned(true);
+ * commandShip.moveToTarget(agent.getX(),agent.getY());
+ * traceln(commandShip.getCurrentLocation());
+ * 
+ * }
+ */
 
-while( commandShip.getAssigned() == false ){
-	commandShip.setAssigned(true);
-	commandShip.moveToTarget(agent.getX(),agent.getY());
-	traceln(commandShip.getCurrentLocation());
-	
-}
-]]></Code>
+send(agent, commandShip);
+// check agents' distance before sending messages
+// weather conditions for the safety of agents]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -783,9 +916,9 @@ while( commandShip.getAssigned() == false ){
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//
-traceln("reset on exit");
-commandShip.setAssigned(false);
+								<Code><![CDATA[
+// two conditions: science duration passed out, or is being
+// picked up by agents
 traceln("agent exit queue " + agent.getScienceName());]]></Code>
 							</Value>
 						</Parameter>
@@ -928,7 +1061,7 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 						<Parameter>
 							<Name><![CDATA[initialLocation]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[new double[]{40.0,-30.0};]]></Code>
+								<Code><![CDATA[new double[]{40.0, -30.0}]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -996,7 +1129,7 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 						<Parameter>
 							<Name><![CDATA[initialLocation]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[new double[]{20.0,-30.0};]]></Code>
+								<Code><![CDATA[new double[]{20.0, -30.0}]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -1066,12 +1199,12 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>1050</Width>
+					<Width>1030</Width>
 					<Height>620</Height>
 					<GISShapes>
 					</GISShapes>
-					<Latitude>38.43782271425336</Latitude>
-					<Longitude>-28.18511116921578</Longitude>
+					<Latitude>39.69964167906264</Latitude>
+					<Longitude>-28.800094737806162</Longitude>
 					<Scale>4000000</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
@@ -1210,8 +1343,8 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 					<LineWidth>1</LineWidth>
 					<LineStyle>SOLID</LineStyle>
 					<ReadOnly>false</ReadOnly>
-					<Latitude>37.79848086462439</Latitude>	
-					<Longitude>-25.479915590714043</Longitude>
+					<Latitude>37.789802813117866</Latitude>	
+					<Longitude>-25.5238429884705</Longitude>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
@@ -1235,6 +1368,797 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952514854</Id>
+					<Name><![CDATA[island_6_region]]></Name>
+					<X>495.2</X><Y>298.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.54526635030136</X><Y>-28.539275813627206</Y></Point>
+						<Point><X>38.55814881802102</X><Y>-28.374548072040497</Y></Point>
+						<Point><X>38.50015953822364</X><Y>-28.245511341130907</Y></Point>
+						<Point><X>38.422767822143165</X><Y>-28.034110739427962</Y></Point>
+						<Point><X>38.39264862271639</X><Y>-28.251002265850463</Y></Point>
+						<Point><X>38.45287446744772</X><Y>-28.522803039468535</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952784488</Id>
+					<Name><![CDATA[island_4_region]]></Name>
+					<X>497.25</X><Y>331</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.61394616714829</X><Y>-28.841276673202838</Y></Point>
+						<Point><X>38.63325053148445</X><Y>-28.783621963647494</Y></Point>
+						<Point><X>38.64611722056177</X><Y>-28.717730867012808</Y></Point>
+						<Point><X>38.598928069106215</X><Y>-28.62163968442056</Y></Point>
+						<Point><X>38.51519828325701</X><Y>-28.616148759701005</Y></Point>
+						<Point><X>38.528086136272215</X><Y>-28.74518549061059</Y></Point>
+						<Point><X>38.57102897736038</X><Y>-28.764403727129046</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952877647</Id>
+					<Name><![CDATA[island_5_region]]></Name>
+					<X>466</X><Y>355.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.66541292287211</X><Y>-28.196093018654896</Y></Point>
+						<Point><X>38.76823552312134</X><Y>-28.300420588326478</Y></Point>
+						<Point><X>38.57532185079243</X><Y>-27.762309965809894</Y></Point>
+						<Point><X>38.54097168146247</X><Y>-27.811728288285906</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952982954</Id>
+					<Name><![CDATA[island_3_region]]></Name>
+					<X>524.5</X><Y>185.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>39.0907327617615</X><Y>-28.067056287745306</Y></Point>
+						<Point><X>39.082208701782015</X><Y>-27.995674266391067</Y></Point>
+						<Point><X>39.01397914492128</X><Y>-27.94900140627483</Y></Point>
+						<Point><X>39.02251144363688</X><Y>-28.042347126507302</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953093645</Id>
+					<Name><![CDATA[island_7_region]]></Name>
+					<X>590.25</X><Y>268.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.774657023455205</X><Y>-27.46580003095382</Y></Point>
+						<Point><X>38.79819757869911</X><Y>-27.215962956213975</Y></Point>
+						<Point><X>38.78749828986578</X><Y>-27.089671687664165</Y></Point>
+						<Point><X>38.70398873190532</X><Y>-27.037507902828374</Y></Point>
+						<Point><X>38.652549698868526</X><Y>-27.08418076294461</Y></Point>
+						<Point><X>38.65898159964837</X><Y>-27.292835902287774</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953134047</Id>
+					<Name><![CDATA[island_8_region]]></Name>
+					<X>724.75</X><Y>340.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>37.8505277642472</X><Y>-26.00246859319188</Y></Point>
+						<Point><X>37.915534757503565</X><Y>-25.77734067969005</Y></Point>
+						<Point><X>37.86570119495128</X><Y>-25.615358400463116</Y></Point>
+						<Point><X>37.84835987632012</X><Y>-25.129411562782323</Y></Point>
+						<Point><X>37.74639726790435</X><Y>-25.15137526166055</Y></Point>
+						<Point><X>37.722513359890755</X><Y>-25.3874850246015</Y></Point>
+						<Point><X>37.7246849426139</X><Y>-25.692231346536914</Y></Point>
+						<Point><X>37.781123742326585</X><Y>-25.77184975497049</Y></Point>
+						<Point><X>37.77895381537483</X><Y>-25.994232206112546</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953461109</Id>
+					<Name><![CDATA[island_9_region]]></Name>
+					<X>806.75</X><Y>474.75</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>37.000229026767286</X><Y>-25.181575347618114</Y></Point>
+						<Point><X>37.01338359134789</X><Y>-25.06077500378786</Y></Point>
+						<Point><X>36.96952619110926</X><Y>-25.014102143671625</Y></Point>
+						<Point><X>36.92564350679044</X><Y>-25.016847606031405</Y></Point>
+						<Point><X>36.96294540004908</X><Y>-25.093720552105204</Y></Point>
+						<Point><X>36.94978211140354</X><Y>-25.145884336940995</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953527800</Id>
+					<Name><![CDATA[island_2_region]]></Name>
+					<X>399</X><Y>264.3333333333333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>39.510681704312546</X><Y>-31.256372056304464</Y></Point>
+						<Point><X>39.50503027525431</X><Y>-31.16484932307889</Y></Point>
+						<Point><X>39.462651103772465</X><Y>-31.12824681889832</Y></Point>
+						<Point><X>39.37498849673435</X><Y>-31.186813021957118</Y></Point>
+						<Point><X>39.38630353102816</X><Y>-31.256372056304464</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675960920626</Id>
+					<Name><![CDATA[island_1_region]]></Name>
+					<X>367.3333333333333</X><Y>208.66666666666666</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>39.73005308137702</X><Y>-31.119461339347026</Y></Point>
+						<Point><X>39.703021385880376</X><Y>-31.090908530805336</Y></Point>
+						<Point><X>39.67090748873782</X><Y>-31.104086750132268</Y></Point>
+						<Point><X>39.67090748873782</X><Y>-31.123854079122673</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISPoint>
+					<Id>1675988434366</Id>
+					<Name><![CDATA[Island6_east]]></Name>
+					<X>708</X><Y>382</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.785463405127864</Latitude>	
+					<Longitude>-25.066265928507416</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1675988489130</Id>
+					<Name><![CDATA[Island6_west]]></Name>
+					<X>815</X><Y>375</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.815833909465844</Latitude>	
+					<Longitude>-26.06561422746679</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1675988524522</Id>
+					<Name><![CDATA[Island6_north]]></Name>
+					<X>760</X><Y>355</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.94152148495475</Latitude>	
+					<Longitude>-25.560449153267548</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1675988577187</Id>
+					<Name><![CDATA[Island6_south]]></Name>
+					<X>765</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.64212005208439</Latitude>	
+					<Longitude>-25.560449153267548</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044483893</Id>
+					<Name><![CDATA[Island7_west]]></Name>
+					<X>784.4</X><Y>478.8</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>36.97128097264733</Latitude>	
+					<Longitude>-25.226600930318483</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044488703</Id>
+					<Name><![CDATA[Island7_north]]></Name>
+					<X>796.4</X><Y>467.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.06948415139936</Latitude>	
+					<Longitude>-25.094818737049113</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044491596</Id>
+					<Name><![CDATA[Island7_east]]></Name>
+					<X>808.8</X><Y>477.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>36.985317768503045</Latitude>	
+					<Longitude>-24.958643804004105</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044497345</Id>
+					<Name><![CDATA[Island7_south]]></Name>
+					<X>797.2</X><Y>487.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>36.89754532490156</Latitude>	
+					<Longitude>-25.086033257497824</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044641841</Id>
+					<Name><![CDATA[Island5_north]]></Name>
+					<X>601.2</X><Y>259.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.87005513329664</Latitude>	
+					<Longitude>-27.238475747564156</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044699915</Id>
+					<Name><![CDATA[Island5_west]]></Name>
+					<X>570</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.71598585296987</Latitude>	
+					<Longitude>-27.563538490961935</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044731361</Id>
+					<Name><![CDATA[Island5_east]]></Name>
+					<X>627.6</X><Y>276.4</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.7262674971341</Latitude>	
+					<Longitude>-26.94855492237155</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044892008</Id>
+					<Name><![CDATA[Island5_south]]></Name>
+					<X>600</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.565018523615535</Latitude>	
+					<Longitude>-27.220904788461574</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044919554</Id>
+					<Name><![CDATA[Island4_west]]></Name>
+					<X>445.2</X><Y>289.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.592490779214764</Latitude>	
+					<Longitude>-28.951644260065933</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044982435</Id>
+					<Name><![CDATA[Island4_east]]></Name>
+					<X>562.4</X><Y>294.4</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.571887572568116</Latitude>	
+					<Longitude>-27.66457150580178</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045036808</Id>
+					<Name><![CDATA[Island4_south]]></Name>
+					<X>555</X><Y>315</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.272477425348676</Latitude>	
+					<Longitude>-28.25319863573829</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045110968</Id>
+					<Name><![CDATA[Island4_north]]></Name>
+					<X>540</X><Y>335</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.83584629800004</Latitude>	
+					<Longitude>-28.283947814167806</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045151582</Id>
+					<Name><![CDATA[Island3_west]]></Name>
+					<X>490</X><Y>235</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.04767572580418</Latitude>	
+					<Longitude>-28.152165620898444</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045229144</Id>
+					<Name><![CDATA[Island3_east]]></Name>
+					<X>543.2</X><Y>237.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.05790947984913</Latitude>	
+					<Longitude>-27.875423015032766</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045242922</Id>
+					<Name><![CDATA[Island3_north]]></Name>
+					<X>529.2</X><Y>225.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.163571411596976</Latitude>	
+					<Longitude>-28.029168907180363</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045263063</Id>
+					<Name><![CDATA[Island3_south]]></Name>
+					<X>531.2</X><Y>247.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.97599793195642</Latitude>	
+					<Longitude>-28.007205208302135</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045417449</Id>
+					<Name><![CDATA[Island2_west]]></Name>
+					<X>228</X><Y>192.8</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.438907488615286</Latitude>	
+					<Longitude>-31.336901958241484</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045527516</Id>
+					<Name><![CDATA[Island2_east]]></Name>
+					<X>260</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.45162828939196</Latitude>	
+					<Longitude>-31.066016338743346</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045559099</Id>
+					<Name><![CDATA[Island2_south]]></Name>
+					<X>240.66666666666666</X><Y>205.33333333333334</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.332527334777595</Latitude>	
+					<Longitude>-31.197798532012712</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045573048</Id>
+					<Name><![CDATA[Island2_north]]></Name>
+					<X>239.33333333333334</X><Y>176</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.58124769106444</Latitude>	
+					<Longitude>-31.212440997931527</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045957039</Id>
+					<Name><![CDATA[Island1_east]]></Name>
+					<X>275</X><Y>164</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.694290138097685</Latitude>	
+					<Longitude>-31.05320418106438</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045974210</Id>
+					<Name><![CDATA[Island1_west]]></Name>
+					<X>265</X><Y>167</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.69710679032868</Latitude>	
+					<Longitude>-31.159362058975816</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676047690505</Id>
+					<Name><![CDATA[Island1_north]]></Name>
+					<X>274</X><Y>149</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.75622993270592</Latitude>	
+					<Longitude>-31.100792195300542</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676047714393</Id>
+					<Name><![CDATA[Island1_south]]></Name>
+					<X>298</X><Y>159</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.63652344088727</Latitude>	
+					<Longitude>-31.102622503540395</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
 			</Presentation>
 
 				</GISMap>
@@ -1254,8 +2178,8 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>37.08350281312643</Latitude>
-					<Longitude>-29.11987060440595</Longitude>
+					<Latitude>38.2517827230437</Latitude>
+					<Longitude>-29.796352529855373</Longitude>
 				</EmbeddedObjectPresentation>
 				<EmbeddedObjectPresentation>
 					<Id>1675446817058</Id>
@@ -1295,8 +2219,8 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>38.43782271425336</Latitude>
-					<Longitude>-28.18511116921578</Longitude>
+					<Latitude>37.79414196628669</Latitude>
+					<Longitude>-30.02457095026737</Longitude>
 				</EmbeddedObjectPresentation>
 				<EmbeddedObjectPresentation>
 					<Id>1675451417841</Id>
@@ -1927,65 +2851,60 @@ traceln("agent exit queue " + agent.getScienceName());]]></Code>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[
-this.setLocation(new Point(this.initialLocation[0],this.initialLocation[1]));
+this.setLocation(new Point(this.initialLocation[0],
+		this.initialLocation[1]));
 this.setCurrentLocation(this.initialLocation);
 
-//this.moveToLocation(initial)
-//this.setSpeed(_initial_speed);
-//traceln(agent.initialLocation);
-//double[] newTarget = new double[]{40.73343,-27.60242};
+// this.moveToLocation(initial)
+// this.setSpeed(_initial_speed);
+// traceln(agent.initialLocation);
+// double[] newTarget = new double[]{40.73343,-27.60242};
 /*
-GISNetwork network;
-GISRoute route;
-
-
-
-int loop = 1;
-int count = 0;
-
-while (count < loop){
-	traceln(count);
-	traceln("current location");
-	traceln(this.getCurrentLocation());
-	//this.stop();
-	double rangeMin = 40;
-	double rangeMax = 70;
-	Random r = new Random();
-	double randomLat = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
-	
-	double rangeMin_1 = -30;
-	double rangeMax_2 = -60;
-	double randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) * r.nextDouble();
-	
-	//GISPoint source = new GISPoint(main.map, false, this.currentLocation[0],this.currentLocation[1]);
-	GISPoint target = new GISPoint(main.map, false, randomLat,randomLon);
-	traceln(randomLat);
-	traceln(randomLon);
-	//route = this.generateRoute(source,target,all_islands,island_distance);
-	
-	//route.initialize();
-	
-	//network = new GISNetwork(main.map, String.valueOf(count));
-	//network.addAll(source,target,route);
-	//network.initialize(); 
-	
-	//this.setNetwork(network);
-	
-	this.moveTo(target);
-	double arrival_time = this.timeToArrival();
-	traceln("arrival_time");
-	traceln(arrival_time);
-
-	//wait();
-	//source = target;
-	//TimeUnit.SECONDS.sleep(30);
-	this.setCurrentLocation(new double[]{target.getLatitude(), target.getLongitude()});
-	count++;
-}
-traceln(this.getCurrentLocation());
-//GISNetwork network = new GISNetwork(map,"myNetwork");
-//network.initialize();
-*/
+ * GISNetwork network; GISRoute route;
+ * 
+ * 
+ * 
+ * int loop = 1; int count = 0;
+ * 
+ * while (count < loop){ traceln(count);
+ * traceln("current location");
+ * traceln(this.getCurrentLocation()); //this.stop(); double
+ * rangeMin = 40; double rangeMax = 70; Random r = new
+ * Random(); double randomLat = rangeMin + (rangeMax -
+ * rangeMin) * r.nextDouble();
+ * 
+ * double rangeMin_1 = -30; double rangeMax_2 = -60; double
+ * randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) *
+ * r.nextDouble();
+ * 
+ * //GISPoint source = new GISPoint(main.map, false,
+ * this.currentLocation[0],this.currentLocation[1]);
+ * GISPoint target = new GISPoint(main.map, false,
+ * randomLat,randomLon); traceln(randomLat);
+ * traceln(randomLon); //route =
+ * this.generateRoute(source,target,all_islands,
+ * island_distance);
+ * 
+ * //route.initialize();
+ * 
+ * //network = new GISNetwork(main.map,
+ * String.valueOf(count));
+ * //network.addAll(source,target,route);
+ * //network.initialize();
+ * 
+ * //this.setNetwork(network);
+ * 
+ * this.moveTo(target); double arrival_time =
+ * this.timeToArrival(); traceln("arrival_time");
+ * traceln(arrival_time);
+ * 
+ * //wait(); //source = target;
+ * //TimeUnit.SECONDS.sleep(30); this.setCurrentLocation(new
+ * double[]{target.getLatitude(), target.getLongitude()});
+ * count++; } traceln(this.getCurrentLocation());
+ * //GISNetwork network = new GISNetwork(map,"myNetwork");
+ * //network.initialize();
+ */
 ]]></Body>
 				</Function>
 			</Functions>
@@ -2061,7 +2980,7 @@ traceln(this.getCurrentLocation());
 					<Code><![CDATA[10]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 				</VelocityCode>
-				<OnArrival><![CDATA[//traceln(this.getPosition());]]></OnArrival>
+				<OnArrival><![CDATA[// traceln(this.getPosition());]]></OnArrival>
 				<PhysicalLength Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
@@ -2167,6 +3086,9 @@ traceln(this.getCurrentLocation());
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
 						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["empty"]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -2183,6 +3105,19 @@ traceln(this.getCurrentLocation());
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[false]]></Code>
 						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1677869306724</Id>
+					<Name><![CDATA[tempVariable]]></Name>
+					<Description><![CDATA[Variable of checking if commandShip is on task]]></Description>
+					<X>320</X><Y>470</Y>
+					<Label><X>10</X><Y>-5</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[ArrayList<GISPoint>]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -2208,6 +3143,265 @@ traceln(this.getCurrentLocation());
 					</Properties>                 
 				</Variable>
 			</Variables>
+			<StatechartElements>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1677865952061</Id>
+					<Name><![CDATA[stopMoving]]></Name>
+					<X>640</X><Y>160</Y>
+					<Label><X>0</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1677866007071</Id>
+					<Name><![CDATA[receiveScience]]></Name>
+					<X>640</X><Y>240</Y>
+					<Label><X>5</X><Y>20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="140" Height="50">
+						<EntryAction><![CDATA[
+// this.moveTo(msg);
+traceln("moving in statechart");
+this.moveTo(this.tempVariable.get(0));
+this.tempVariable.remove(0);
+traceln(this.tempVariable);]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="Branch" ParentState="ROOT_NODE">
+					<Id>1677871745828</Id>
+					<Name><![CDATA[branch]]></Name>
+					<X>660</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Properties>	
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1677871998478</Id>
+					<Name><![CDATA[state]]></Name>
+					<X>650</X><Y>420</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<EntryAction><![CDATA[traceln("finished");]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
+					<Id>1677865944355</Id>
+					<Name><![CDATA[commandShip]]></Name>
+					<X>680</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<Properties Target="1677865952061">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1677866046975</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>680</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>17</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1677865952061" Target="1677866007071" Trigger="message">
+						<Action><![CDATA[traceln("message received");
+GISPoint source = new GISPoint(main.map,
+		this.getCurrentLocation()[0],
+		this.getCurrentLocation()[1]);
+GISPoint target = new GISPoint(main.map,
+		msg.getLocation()[0], msg.getLocation()[1]);
+Curve curve = new Curve();
+
+// GISPoint source = new GISPoint(main.map, true,
+// this.currentLocation[0],this.currentLocation[1]);
+// GISPoint target = new GISPoint(main.map, false,
+// newLocation[0],newLocation[1]);
+GISMarkupSegment segment1 = new GISMarkupSegmentLine(
+		this.getCurrentLocation()[0],
+		this.getCurrentLocation()[1], msg.getLocation()[0],
+		msg.getLocation()[1]);
+// GISMarkupSegment segment2 = new GISMarkupSegmentLine(
+// randomLat, randomLon,
+// target.getLatitude(), target.getLongitude());
+// newLocation[0], newLocation[1]
+curve.addSegment(segment1);
+
+// GISMarkupSegment[] route_arr = route_segments.toArray(new
+// GISMarkupSegment[route_segments.size()]);
+GISRoute route = new GISRoute(main.map, curve, source,
+		target, true);
+ArrayList<GISPoint> Crossed_Islands = this
+		.checkCrossingIslands(route);
+main.map.remove(route);
+String direction = this.checkdirection(source, target);
+traceln("the direction is " + direction);
+if (Crossed_Islands.size() == 0) {
+	this.tempVariable.add(target);
+} else {
+	this.tempVariable = this.calculateLineSegments(source,
+			target, Crossed_Islands, direction);
+}]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Science]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[satisfies]]></FilterType>
+						<EqualsExpression><![CDATA[msg.getType() == "Seamount"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[msg.getType() == "Seamount"]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1677871839219</Id>
+					<Name><![CDATA[transition1]]></Name>
+					<X>650</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>10</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>30.0</IconOffset>
+					<Properties Source="1677866007071" Target="1677871745828" Trigger="arrival">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1677871866776</Id>
+					<Name><![CDATA[transition2]]></Name>
+					<X>672</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>88</X><Y>-60</Y></Point>
+					</Points>
+					<IconOffset>60.0</IconOffset>
+					<Properties Source="1677871745828" Target="1677866007071" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[!this.tempVariable.isEmpty()]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>false</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1677871914515</Id>
+					<Name><![CDATA[transition3]]></Name>
+					<X>660</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>40</X><Y>60</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1677871745828" Target="1677871998478" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[this.tempVariable.isEmpty()]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1677873131893</Id>
+					<Name><![CDATA[transition4]]></Name>
+					<X>740</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-10</X><Y>-230</Y></Point>
+					</Points>
+					<IconOffset>80.0</IconOffset>
+					<Properties Source="1677871998478" Target="1677865952061" Trigger="condition">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+			</StatechartElements>
 			<Functions>
 				<Function AccessType="public" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -2266,12 +3460,12 @@ traceln(this.getCurrentLocation());
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[return this.speed;]]></Body>
 				</Function>
-				<Function AccessType="public" StaticFunction="false">
+				<Function AccessType="private" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[GISRoute]]></ReturnType>
+					<ReturnType><![CDATA[ArrayList<GISPoint>]]></ReturnType>
 					<Id>1668173002294</Id>
-					<Name><![CDATA[generateRoute]]></Name>
-					<X>230</X><Y>250</Y>
+					<Name><![CDATA[calculateLineSegments]]></Name>
+					<X>400</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2285,42 +3479,69 @@ traceln(this.getCurrentLocation());
 						<Type><![CDATA[GISPoint]]></Type>
 					</Parameter>
 					<Parameter>
-						<Name><![CDATA[all_islands]]></Name>
+						<Name><![CDATA[crossedIslands]]></Name>
 						<Type><![CDATA[ArrayList<GISPoint>]]></Type>
 					</Parameter>
 					<Parameter>
-						<Name><![CDATA[islands_distance]]></Name>
-						<Type><![CDATA[HashMap<String,Integer>]]></Type>
+						<Name><![CDATA[direction]]></Name>
+						<Type><![CDATA[String]]></Type>
 					</Parameter>
-					<Body><![CDATA[//Initial Route
-//GISRoute route = main.map.getRoute(this.currentLocation[0], this.currentLocation[1], newLocation[0], newLocation[1]);
-//Check if the commandship has a crash on one of the islands.
-double rangeMin = 40;
-double rangeMax = 45;
-Random r = new Random();
-double randomLat = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
-	
-double rangeMin_1 = -30;
-double rangeMax_2 = -25;
-double randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) * r.nextDouble();
-Curve curve = new Curve();
-//GISPoint source = new GISPoint(main.map, true, this.currentLocation[0],this.currentLocation[1]);
-//GISPoint target = new GISPoint(main.map, false, newLocation[0],newLocation[1]);
-GISMarkupSegment segment1 = new GISMarkupSegmentLine(
-                source.getLatitude(), source.getLongitude(), 
-                randomLat, randomLon);
-GISMarkupSegment segment2 = new GISMarkupSegmentLine(
-                randomLat, randomLon, 
-               	target.getLatitude(), target.getLongitude());
-//newLocation[0], newLocation[1]
-curve.addSegment(segment1);
-curve.addSegment(segment2);
-curve.initialize();
-	
-//GISMarkupSegment[] route_arr = route_segments.toArray(new GISMarkupSegment[route_segments.size()]);
-GISRoute route = new GISRoute(main.map, curve,source,target,true);
+					<Body><![CDATA[HashMap<GISPoint, Double> routeSegment = new HashMap<GISPoint, Double>();
 
-return route;]]></Body>
+Curve curve = new Curve();
+ArrayList<GISPoint> sorted_gis_points = new ArrayList<GISPoint>();
+HashMap<String, GISPoint> set1 = null;
+HashMap<String, GISPoint> set2 = null;
+if (direction == "horizontal") {
+	set1 = main.all_islands_east;
+	set2 = main.all_islands_west;
+} else {
+	set1 = main.all_islands_north;
+	set2 = main.all_islands_south;
+}
+
+for (int i = 0; i < crossedIslands.size(); i++) {
+	String island_name = crossedIslands.get(i).getName();
+	if
+	// ((source.distance(set1.get(island_name))+target.distance(set1.get(island_name)))
+	// <
+	// (source.distance(set2.get(island_name))+target.distance(set2.get(island_name)))
+	((source.distance(set1.get(island_name)) + target
+			.distance(set1.get(island_name))) < (source
+					.distance(set2.get(island_name))
+					+ target.distance(
+							set2.get(island_name))))
+
+	{
+		routeSegment.put(set1.get(island_name),
+				source.distance(set1.get(island_name)));
+	} else {
+		routeSegment.put(set2.get(island_name),
+				source.distance(set2.get(island_name)));
+
+	}
+	/*
+	 * else{ if(target.distance(set1.get(island_name)) <=
+	 * target.distance(set2.get(island_name))){
+	 * routeSegment.put(set1.get(island_name),source.
+	 * distance(set1.get(island_name))); } else{
+	 * routeSegment.put(set2.get(island_name),source.
+	 * distance(set2.get(island_name))); } }
+	 */
+}
+sorted_gis_points = this.sortedHashMap(routeSegment);
+sorted_gis_points.add(0, source);
+sorted_gis_points.add(target);
+int i = 0;
+while (i < sorted_gis_points.size() - 1) {
+	curve.addSegment(new GISMarkupSegmentLine(
+			sorted_gis_points.get(i).getLatitude(),
+			sorted_gis_points.get(i).getLongitude(),
+			sorted_gis_points.get(i + 1).getLatitude(),
+			sorted_gis_points.get(i + 1).getLongitude()));
+	i = i + 1;
+}
+return sorted_gis_points;]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -2339,68 +3560,64 @@ return route;]]></Body>
 					</Parameter>
 					<Parameter>
 						<Name><![CDATA[island_distance]]></Name>
-						<Type><![CDATA[HashMap<String,Integer>]]></Type>
+						<Type><![CDATA[HashMap<String,Double>]]></Type>
 					</Parameter>
 					<Body><![CDATA[
-this.setLocation(new Point(this.initialLocation[0],this.initialLocation[1]));
+this.setLocation(new Point(this.initialLocation[0],
+		this.initialLocation[1]));
 this.setCurrentLocation(this.initialLocation);
+// this.moveToTarget(40,-24.5);
 
-//this.moveToLocation(initial)
-//this.setSpeed(_initial_speed);
-//traceln(agent.initialLocation);
-//double[] newTarget = new double[]{40.73343,-27.60242};
+// this.moveToLocation(initial)
+// this.setSpeed(_initial_speed);
+// traceln(agent.initialLocation);
+// double[] newTarget = new double[]{40.73343,-27.60242};
 /*
-GISNetwork network;
-GISRoute route;
-
-
-
-int loop = 1;
-int count = 0;
-
-while (count < loop){
-	traceln(count);
-	traceln("current location");
-	traceln(this.getCurrentLocation());
-	//this.stop();
-	double rangeMin = 40;
-	double rangeMax = 70;
-	Random r = new Random();
-	double randomLat = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
-	
-	double rangeMin_1 = -30;
-	double rangeMax_2 = -60;
-	double randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) * r.nextDouble();
-	
-	//GISPoint source = new GISPoint(main.map, false, this.currentLocation[0],this.currentLocation[1]);
-	GISPoint target = new GISPoint(main.map, false, randomLat,randomLon);
-	traceln(randomLat);
-	traceln(randomLon);
-	//route = this.generateRoute(source,target,all_islands,island_distance);
-	
-	//route.initialize();
-	
-	//network = new GISNetwork(main.map, String.valueOf(count));
-	//network.addAll(source,target,route);
-	//network.initialize(); 
-	
-	//this.setNetwork(network);
-	
-	this.moveTo(target);
-	double arrival_time = this.timeToArrival();
-	traceln("arrival_time");
-	traceln(arrival_time);
-
-	//wait();
-	//source = target;
-	//TimeUnit.SECONDS.sleep(30);
-	this.setCurrentLocation(new double[]{target.getLatitude(), target.getLongitude()});
-	count++;
-}
-traceln(this.getCurrentLocation());
-//GISNetwork network = new GISNetwork(map,"myNetwork");
-//network.initialize();
-*/
+ * GISNetwork network; GISRoute route;
+ * 
+ * 
+ * 
+ * int loop = 1; int count = 0;
+ * 
+ * while (count < loop){ traceln(count);
+ * traceln("current location");
+ * traceln(this.getCurrentLocation()); //this.stop(); double
+ * rangeMin = 40; double rangeMax = 70; Random r = new
+ * Random(); double randomLat = rangeMin + (rangeMax -
+ * rangeMin) * r.nextDouble();
+ * 
+ * double rangeMin_1 = -30; double rangeMax_2 = -60; double
+ * randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) *
+ * r.nextDouble();
+ * 
+ * //GISPoint source = new GISPoint(main.map, false,
+ * this.currentLocation[0],this.currentLocation[1]);
+ * GISPoint target = new GISPoint(main.map, false,
+ * randomLat,randomLon); traceln(randomLat);
+ * traceln(randomLon); //route =
+ * this.generateRoute(source,target,all_islands,
+ * island_distance);
+ * 
+ * //route.initialize();
+ * 
+ * //network = new GISNetwork(main.map,
+ * String.valueOf(count));
+ * //network.addAll(source,target,route);
+ * //network.initialize();
+ * 
+ * //this.setNetwork(network);
+ * 
+ * this.moveTo(target); double arrival_time =
+ * this.timeToArrival(); traceln("arrival_time");
+ * traceln(arrival_time);
+ * 
+ * //wait(); //source = target;
+ * //TimeUnit.SECONDS.sleep(30); this.setCurrentLocation(new
+ * double[]{target.getLatitude(), target.getLongitude()});
+ * count++; } traceln(this.getCurrentLocation());
+ * //GISNetwork network = new GISNetwork(map,"myNetwork");
+ * //network.initialize();
+ */
 ]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">
@@ -2451,21 +3668,87 @@ traceln(this.getCurrentLocation());
 						<Name><![CDATA[lat]]></Name>
 						<Type><![CDATA[double]]></Type>
 					</Parameter>
-					<Body><![CDATA[this.moveTo(lon,lat);
+					<Body><![CDATA[//
 
+// sample code
+/*
+ * //crreate an gisroute without initialize //checking if
+ * the gisroute is pass // change one of gisroute point if
+ * passingIsland == True:{ this.moveTo(location of one of
+ * Island A edge) this.moveTo(next edge of the Island B );
+ * this.moveTo(targetLocation); }
+ */
 
-//sample code
-/*	//crreate an gisroute without initialize 
-	//checking if the gisroute is pass
-	// change one of gisroute point
-	if passingIsland == True:{
-		this.moveTo(location of one of Island A edge)
-		this.moveTo(next edge of the Island B	);
-		this.moveTo(targetLocation);
+Curve curve = new Curve();
+GISPoint source = new GISPoint(main.map,
+		this.getCurrentLocation()[0],
+		this.getCurrentLocation()[1]);
+GISPoint target = new GISPoint(main.map, lon, lat);
+// GISPoint source = new GISPoint(main.map, true,
+// this.currentLocation[0],this.currentLocation[1]);
+// GISPoint target = new GISPoint(main.map, false,
+// newLocation[0],newLocation[1]);
+GISMarkupSegment segment1 = new GISMarkupSegmentLine(
+		this.getCurrentLocation()[0],
+		this.getCurrentLocation()[1], lon, lat);
+// GISMarkupSegment segment2 = new GISMarkupSegmentLine(
+// randomLat, randomLon,
+// target.getLatitude(), target.getLongitude());
+// newLocation[0], newLocation[1]
+curve.addSegment(segment1);
+// curve.addSegment(segment2);
+// curve.initialize();
+
+// GISMarkupSegment[] route_arr = route_segments.toArray(new
+// GISMarkupSegment[route_segments.size()]);
+GISRoute route = new GISRoute(main.map, curve, source,
+		target, true);
+ArrayList<GISPoint> Crossed_Islands = this
+		.checkCrossingIslands(route);
+main.map.remove(route);
+String direction = this.checkdirection(source, target);
+traceln("the direction is " + direction);
+if (Crossed_Islands.size() == 0) {
+	this.moveTo(lon, lat);
+} else {
+	traceln("changed route because of Islands"
+			+ Crossed_Islands);
+	// curve =
+	// this.calculateLineSegments(source,target,Crossed_Islands,direction);
+	// traceln(curve);
+	// GISRoute route1 = new GISRoute(main.map,
+	// curve,source,target,true);
+	// route1.initialize();
+	// main.map.initialize();
+	ArrayList<GISPoint> segements = this
+			.calculateLineSegments(source, target,
+					Crossed_Islands, direction);
+	int i = 0;
+	// this.moveTo(segements.get(1));
+	// this.moveTo(segements.get(2));
+	while (i < segements.size()) {
+
+		// this.isAssigned = true;
+		traceln("Number " + i);
+		traceln("Going " + segements.get(i).getName());
+
+		this.moveTo(segements.get(i));
+		traceln("current Location " + this.getPosition());
+		traceln("moving " + this.isMoving());
+		traceln("TargetX :" + this.getTargetX());
+		traceln("TargetY :" + this.getTargetY());
+
+		i = i + 1;
 	}
-*/
-double[] location = new double[]{lon,lat};
-this.setCurrentLocation(location);]]></Body>
+
+	// this.moveTo(lon,lat);
+
+}
+
+double[] location = new double[]{lon, lat};
+this.setCurrentLocation(location);
+main.map.remove(route);
+]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -2481,7 +3764,7 @@ this.setCurrentLocation(location);]]></Body>
 						<Name><![CDATA[location]]></Name>
 						<Type><![CDATA[double[]]]></Type>
 					</Parameter>
-					<Body><![CDATA[this.moveTo(location[0],location[1]);
+					<Body><![CDATA[this.moveTo(location[0], location[1]);
 this.setCurrentLocation(location);]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">
@@ -2512,6 +3795,105 @@ this.setCurrentLocation(location);]]></Body>
 					</Parameter>
 					<Body><![CDATA[this.isAssigned = newAssignedStatus;]]></Body>
 				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<GISPoint>]]></ReturnType>
+					<Id>1675987640648</Id>
+					<Name><![CDATA[checkCrossingIslands]]></Name>
+					<Description><![CDATA[return islands that current input route is crossing.]]></Description>
+					<X>100</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[route]]></Name>
+						<Type><![CDATA[GISRoute]]></Type>
+					</Parameter>
+					<Body><![CDATA[ArrayList<GISPoint> crossed_islands = new ArrayList<GISPoint>();
+
+for (int i = 0; i < main.all_Islands.size(); i++) {
+	// traceln(main.all_Islands.get(i).getName());
+	// traceln(route.contains(main.all_Islands.get(i).getLatitude(),main.all_Islands.get(i).getLongitude(),main.islands_distance.get(main.all_Islands.get(i).getName())));
+	if (route.contains(
+			main.all_Islands.get(i).getLatitude(),
+			main.all_Islands.get(i).getLongitude(),
+			main.islands_distance.get(
+					main.all_Islands.get(i).getName()))) {
+		crossed_islands.add(main.all_Islands.get(i));
+		traceln(main.all_Islands.get(i).getName());
+	}
+
+}
+
+return crossed_islands;]]></Body>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1675998662594</Id>
+					<Name><![CDATA[checkdirection]]></Name>
+					<X>390</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[source]]></Name>
+						<Type><![CDATA[GISPoint]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[target]]></Name>
+						<Type><![CDATA[GISPoint]]></Type>
+					</Parameter>
+					<Body><![CDATA[double lon_difference = Math
+		.abs(source.getLongitude() - target.getLongitude());
+double lat_difference = Math
+		.abs(source.getLatitude() - target.getLatitude());
+
+if (lon_difference < lat_difference) {
+	return "horizontal";
+
+}
+
+return "vertical";]]></Body>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<GISPoint>]]></ReturnType>
+					<Id>1676057742385</Id>
+					<Name><![CDATA[sortedHashMap]]></Name>
+					<X>400</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[hm]]></Name>
+						<Type><![CDATA[HashMap<GISPoint,Double>]]></Type>
+					</Parameter>
+					<Body><![CDATA[// Create a list from elements of HashMap
+List<Map.Entry<GISPoint, Double>> list = new LinkedList<Map.Entry<GISPoint, Double>>(
+		hm.entrySet());
+
+// Sort the list
+Collections.sort(list,
+		new Comparator<Map.Entry<GISPoint, Double>>() {
+			public int compare(
+					Map.Entry<GISPoint, Double> o1,
+					Map.Entry<GISPoint, Double> o2) {
+				return (o1.getValue())
+						.compareTo(o2.getValue());
+			}
+		});
+
+// put data from sorted list to hashmap
+ArrayList<GISPoint> temp = new ArrayList<GISPoint>();
+for (Map.Entry<GISPoint, Double> aa : list) {
+	temp.add(aa.getKey());
+}
+return temp;]]></Body>
+				</Function>
 			</Functions>
 			<AgentLinks>
 				<AgentLink>
@@ -2526,6 +3908,11 @@ this.setCurrentLocation(location);]]></Body>
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
+					<StatechartReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[CommandShip]]></ClassName>
+						<ItemName><![CDATA[commandShip]]></ItemName>
+					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -2714,7 +4101,7 @@ this.setCurrentLocation(location);]]></Body>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[triangular( 1, 5, 2.5 ) // Duration in hours]]></Code>
+							<Code><![CDATA[triangular(1, 5, 2.5) // Duration in hours]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -2730,7 +4117,7 @@ this.setCurrentLocation(location);]]></Body>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[uniform(10.0, 50.0)//uniform distribution]]></Code>
+							<Code><![CDATA[uniform(10.0, 50.0)// uniform distribution]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -2888,7 +4275,7 @@ this.setCurrentLocation(location);]]></Body>
 						<Name><![CDATA[lat]]></Name>
 						<Type><![CDATA[double]]></Type>
 					</Parameter>
-					<Body><![CDATA[double[] location = {lon,lat};
+					<Body><![CDATA[double[] location = {lon, lat};
 this.location = location;]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">

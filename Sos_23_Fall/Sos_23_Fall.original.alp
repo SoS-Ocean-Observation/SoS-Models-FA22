@@ -20,7 +20,11 @@
 			<StartupCode><![CDATA[initial_island_circle(islands_distance);
 commandShip.initialize_commandShip(all_Islands,islands_distance);
 //commandShip.mo
-]]></StartupCode>
+//initial AUV
+
+for (int i = 0; i < auvCollection.size(); i++){
+	auvCollection.get(i).initializeAgent();
+}]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1667589538429</Id>
@@ -129,6 +133,21 @@ commandShip.initialize_commandShip(all_Islands,islands_distance);
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1675446739336</Id>
+					<Name><![CDATA[count]]></Name>
+					<X>80</X><Y>890</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1669933126425</Id>
 					<Name><![CDATA[islands_distance]]></Name>
@@ -140,7 +159,7 @@ commandShip.initialize_commandShip(all_Islands,islands_distance);
 					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
 						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
 						<ElementClass><![CDATA[String]]></ElementClass>
-						<ValueElementClass><![CDATA[Integer]]></ValueElementClass>
+						<ValueElementClass><![CDATA[Double]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{ }]]></Code>
 						</CollectionInitializer>
@@ -166,12 +185,109 @@ commandShip.initialize_commandShip(all_Islands,islands_distance);
 					</Properties>
 
 				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1675449915142</Id>
+					<Name><![CDATA[auvCollection]]></Name>
+					<X>-360</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[AUV]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ AUV_1, AUV_2 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1675972912092</Id>
+					<Name><![CDATA[isLandsRegions]]></Name>
+					<Description><![CDATA[this is the collection of islands.]]></Description>
+					<X>-360</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[GISRegion]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ island_1_region, island_2_region, island_3_region, island_4_region, island_5_region, island_6_region, island_7_region, island_8_region, island_9_region }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059691</Id>
+					<Name><![CDATA[all_islands_north]]></Name>
+					<X>-360</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059694</Id>
+					<Name><![CDATA[all_islands_east]]></Name>
+					<X>-360</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059696</Id>
+					<Name><![CDATA[all_islands_west]]></Name>
+					<X>-360</X><Y>490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1676048059698</Id>
+					<Name><![CDATA[all_islands_south]]></Name>
+					<X>-360</X><Y>510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[HashMap]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[GISPoint]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
 			</Variables>
 			<Connectors>
 				<Connector>
-					<Id>1674810893047</Id>
+					<Id>1674817702820</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>140</X><Y>780</Y>
+					<X>180</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -189,16 +305,82 @@ commandShip.initialize_commandShip(all_Islands,islands_distance);
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[sos_23_fall]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[exitToCommandShip]]></ItemName>
+						<ItemName><![CDATA[ActiveScience]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Exit]]></ClassName>
+						<ClassName><![CDATA[Queue]]></ClassName>
 						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>180</X><Y>0</Y></Point>
+						<Point><X>200</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1674817869840</Id>
+					<Name><![CDATA[connector1]]></Name>
+					<X>640</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[tempSinkforDeletion]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Sink]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[ActiveScience]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Queue]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-220</X><Y>0</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1675454702520</Id>
+					<Name><![CDATA[connector2]]></Name>
+					<X>180</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[SeamountSource]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Source]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[ActiveScience]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Queue]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>200</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -216,15 +398,55 @@ commandShip.initialize_commandShip(all_Islands,islands_distance);
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
 						<Name><![CDATA[islands_distance]]></Name>
-						<Type><![CDATA[HashMap<String,Integer>]]></Type>
+						<Type><![CDATA[HashMap<String,Double>]]></Type>
 					</Parameter>
-					<Body><![CDATA[islands_distance.put("Island1",2500);
-islands_distance.put("Island2",7600);
-islands_distance.put("Island3",5000);
-islands_distance.put("Island4",36500);
-islands_distance.put("Island5",14000);
-islands_distance.put("Island6",20000);
-islands_distance.put("Island7",7000);]]></Body>
+					<Body><![CDATA[islands_distance.put("Island1",2500.0);
+islands_distance.put("Island2",7600.0);
+islands_distance.put("Island3",5000.0);
+islands_distance.put("Island4",36500.0);
+islands_distance.put("Island5",14000.0);
+islands_distance.put("Island6",20000.0);
+islands_distance.put("Island7",7000.0);
+
+all_islands_south.put("Island1",Island1_south);
+all_islands_north.put("Island1",Island1_north);
+all_islands_west.put("Island1",Island1_west);
+all_islands_east.put("Island1",Island1_east);
+
+all_islands_south.put("Island2",Island2_south);
+all_islands_north.put("Island2",Island2_north);
+all_islands_west.put("Island2",Island2_west);
+all_islands_east.put("Island2",Island2_east);
+
+all_islands_south.put("Island2",Island2_south);
+all_islands_north.put("Island2",Island2_north);
+all_islands_west.put("Island2",Island2_west);
+all_islands_east.put("Island2",Island2_east);
+
+all_islands_south.put("Island3",Island3_south);
+all_islands_north.put("Island3",Island3_north);
+all_islands_west.put("Island3",Island3_west);
+all_islands_east.put("Island3",Island3_east);
+
+all_islands_south.put("Island4",Island4_south);
+all_islands_north.put("Island4",Island4_north);
+all_islands_west.put("Island4",Island4_west);
+all_islands_east.put("Island4",Island4_east);
+
+all_islands_south.put("Island5",Island5_south);
+all_islands_north.put("Island5",Island5_north);
+all_islands_west.put("Island5",Island5_west);
+all_islands_east.put("Island5",Island5_east);
+
+all_islands_south.put("Island6",Island6_south);
+all_islands_north.put("Island6",Island6_north);
+all_islands_west.put("Island6",Island6_west);
+all_islands_east.put("Island6",Island6_east);
+
+all_islands_south.put("Island7",Island7_south);
+all_islands_north.put("Island7",Island7_north);
+all_islands_west.put("Island7",Island7_west);
+all_islands_east.put("Island7",Island7_east);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -275,7 +497,7 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[initialLocation]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[new double[]{30.0,-30.0};]]></Code>
+								<Code><![CDATA[new double[]{36.0,-26.0};]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -326,11 +548,13 @@ islands_distance.put("Island7",7000);]]></Body>
 				<EmbeddedObject>
 					<Id>1674801703633</Id>
 					<Name><![CDATA[SeamountSource]]></Name>
-					<X>110</X><Y>770</Y>
+					<Description><![CDATA[spawn seamount scientific events]]></Description>
+					<X>150</X><Y>770</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
+					<PresentationId>1675446817058</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
 						<ClassName><![CDATA[Source]]></ClassName>
@@ -349,8 +573,8 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[0.2]]></Code>
-								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+								<Code><![CDATA[1]]></Code>
+								<Unit Class="RateUnits"><![CDATA[PER_DAY]]></Unit>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -413,13 +637,16 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[locationLatitude]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[uniform(-30,30);]]></Code>
+								<Code><![CDATA[//38.393 + normal(0.15)
+38.393 + normal(1)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLongitude]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[uniform(-30,30);]]></Code>
+								<Code><![CDATA[//-26.6 + normal(0.1)
+//-26.6 + normal(10)
+-28.6 + normal(1)]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -443,8 +670,8 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Parameter>
 							<Name><![CDATA[speed]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
-								<Unit Class="SpeedUnits"><![CDATA[KN]]></Unit>
+								<Code><![CDATA[1 //default, but no uses]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -544,6 +771,18 @@ islands_distance.put("Island7",7000);]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[agent.setType("Seamount"); //set the type of the event
+String s=String.valueOf(count); 
+count = count + 1;
+ 
+agent.setScienceName(s);
+agent.setLocation(agent.getX(),agent.getY());//set location of the current event
+traceln("agent exit Source " + agent.getScienceName());
+
+
+]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onDiscard]]></Name>
@@ -589,29 +828,227 @@ islands_distance.put("Island7",7000);]]></Body>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1674810885377</Id>
-					<Name><![CDATA[exitToCommandShip]]></Name>
-					<X>320</X><Y>770</Y>
-					<Label><X>-40</X><Y>-10</Y></Label>
+					<Id>1674817680283</Id>
+					<Name><![CDATA[ActiveScience]]></Name>
+					<X>380</X><Y>760</Y>
+					<Label><X>-10</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Exit]]></ClassName>
+						<ClassName><![CDATA[Queue]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[Exit]]></ClassName>
-							<ItemName><![CDATA[1412336242934]]></ItemName>
+							<ClassName><![CDATA[Queue]]></ClassName>
+							<ItemName><![CDATA[1412336242932]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
+							<Name><![CDATA[capacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[maximumCapacity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[entityLocation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[queuing]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[priority]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[comparison]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[enableTimeout]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[timeout]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[enablePreemption]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[forceStatisticsCollection]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[//assign to command ship , change it later
+
+while( commandShip.getAssigned() == false ){
+	commandShip.setAssigned(true);
+	commandShip.moveToTarget(agent.getX(),agent.getY());
+	traceln(commandShip.getCurrentLocation());
+	
+}
+]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onAtExit]]></Name>
+						</Parameter>
+						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("created and exited");]]></Code>
+								<Code><![CDATA[//
+traceln("reset on exit");
+commandShip.setAssigned(false);
+traceln("agent exit queue " + agent.getScienceName());]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitTimeout]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExitPreempted]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>EMPTY</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1674817855759</Id>
+					<Name><![CDATA[tempSinkforDeletion]]></Name>
+					<X>640</X><Y>770</Y>
+					<Label><X>-15</X><Y>-25</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Sink]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Sink]]></ClassName>
+							<ItemName><![CDATA[1412336242929]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[destroyEntity]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1675451266555</Id>
+					<Name><![CDATA[AUV_1]]></Name>
+					<X>-360</X><Y>280</Y>
+					<Label><X>5</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1675451266556</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[AUV]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[sos_23_fall]]></PackageName>
+							<ClassName><![CDATA[AUV]]></ClassName>
+							<ItemName><![CDATA[1675427975570]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[initialLocation]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[new double[]{40.0,-30.0};]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -620,6 +1057,75 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>	
+					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ZCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ZCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LatitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LatitudeCode>
+					<LongitudeCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</LongitudeCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1675451417840</Id>
+					<Name><![CDATA[AUV_2]]></Name>
+					<X>-360</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1675451417841</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[AUV]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[sos_23_fall]]></PackageName>
+							<ClassName><![CDATA[AUV]]></ClassName>
+							<ItemName><![CDATA[1675427975570]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[initialLocation]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[new double[]{20.0,-30.0};]]></Code>
+							</Value>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>	
 					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
@@ -680,12 +1186,12 @@ islands_distance.put("Island7",7000);]]></Body>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
-					<Width>1050</Width>
+					<Width>1030</Width>
 					<Height>620</Height>
 					<GISShapes>
 					</GISShapes>
-					<Latitude>38.43782271425336</Latitude>
-					<Longitude>-28.18511116921578</Longitude>
+					<Latitude>39.69964167906264</Latitude>
+					<Longitude>-28.800094737806162</Longitude>
 					<Scale>4000000</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
@@ -824,8 +1330,8 @@ islands_distance.put("Island7",7000);]]></Body>
 					<LineWidth>1</LineWidth>
 					<LineStyle>SOLID</LineStyle>
 					<ReadOnly>false</ReadOnly>
-					<Latitude>37.79848086462439</Latitude>	
-					<Longitude>-25.479915590714043</Longitude>
+					<Latitude>37.789802813117866</Latitude>	
+					<Longitude>-25.5238429884705</Longitude>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
@@ -849,6 +1355,797 @@ islands_distance.put("Island7",7000);]]></Body>
 					<Radius>3</Radius>
 					<FillColor>2144175423</FillColor>
 				</GISPoint>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952514854</Id>
+					<Name><![CDATA[island_6_region]]></Name>
+					<X>495.2</X><Y>298.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.54526635030136</X><Y>-28.539275813627206</Y></Point>
+						<Point><X>38.55814881802102</X><Y>-28.374548072040497</Y></Point>
+						<Point><X>38.50015953822364</X><Y>-28.245511341130907</Y></Point>
+						<Point><X>38.422767822143165</X><Y>-28.034110739427962</Y></Point>
+						<Point><X>38.39264862271639</X><Y>-28.251002265850463</Y></Point>
+						<Point><X>38.45287446744772</X><Y>-28.522803039468535</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952784488</Id>
+					<Name><![CDATA[island_4_region]]></Name>
+					<X>497.25</X><Y>331</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.61394616714829</X><Y>-28.841276673202838</Y></Point>
+						<Point><X>38.63325053148445</X><Y>-28.783621963647494</Y></Point>
+						<Point><X>38.64611722056177</X><Y>-28.717730867012808</Y></Point>
+						<Point><X>38.598928069106215</X><Y>-28.62163968442056</Y></Point>
+						<Point><X>38.51519828325701</X><Y>-28.616148759701005</Y></Point>
+						<Point><X>38.528086136272215</X><Y>-28.74518549061059</Y></Point>
+						<Point><X>38.57102897736038</X><Y>-28.764403727129046</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952877647</Id>
+					<Name><![CDATA[island_5_region]]></Name>
+					<X>466</X><Y>355.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.66541292287211</X><Y>-28.196093018654896</Y></Point>
+						<Point><X>38.76823552312134</X><Y>-28.300420588326478</Y></Point>
+						<Point><X>38.57532185079243</X><Y>-27.762309965809894</Y></Point>
+						<Point><X>38.54097168146247</X><Y>-27.811728288285906</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675952982954</Id>
+					<Name><![CDATA[island_3_region]]></Name>
+					<X>524.5</X><Y>185.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>39.0907327617615</X><Y>-28.067056287745306</Y></Point>
+						<Point><X>39.082208701782015</X><Y>-27.995674266391067</Y></Point>
+						<Point><X>39.01397914492128</X><Y>-27.94900140627483</Y></Point>
+						<Point><X>39.02251144363688</X><Y>-28.042347126507302</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953093645</Id>
+					<Name><![CDATA[island_7_region]]></Name>
+					<X>590.25</X><Y>268.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>38.774657023455205</X><Y>-27.46580003095382</Y></Point>
+						<Point><X>38.79819757869911</X><Y>-27.215962956213975</Y></Point>
+						<Point><X>38.78749828986578</X><Y>-27.089671687664165</Y></Point>
+						<Point><X>38.70398873190532</X><Y>-27.037507902828374</Y></Point>
+						<Point><X>38.652549698868526</X><Y>-27.08418076294461</Y></Point>
+						<Point><X>38.65898159964837</X><Y>-27.292835902287774</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953134047</Id>
+					<Name><![CDATA[island_8_region]]></Name>
+					<X>724.75</X><Y>340.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>37.8505277642472</X><Y>-26.00246859319188</Y></Point>
+						<Point><X>37.915534757503565</X><Y>-25.77734067969005</Y></Point>
+						<Point><X>37.86570119495128</X><Y>-25.615358400463116</Y></Point>
+						<Point><X>37.84835987632012</X><Y>-25.129411562782323</Y></Point>
+						<Point><X>37.74639726790435</X><Y>-25.15137526166055</Y></Point>
+						<Point><X>37.722513359890755</X><Y>-25.3874850246015</Y></Point>
+						<Point><X>37.7246849426139</X><Y>-25.692231346536914</Y></Point>
+						<Point><X>37.781123742326585</X><Y>-25.77184975497049</Y></Point>
+						<Point><X>37.77895381537483</X><Y>-25.994232206112546</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953461109</Id>
+					<Name><![CDATA[island_9_region]]></Name>
+					<X>806.75</X><Y>474.75</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>37.000229026767286</X><Y>-25.181575347618114</Y></Point>
+						<Point><X>37.01338359134789</X><Y>-25.06077500378786</Y></Point>
+						<Point><X>36.96952619110926</X><Y>-25.014102143671625</Y></Point>
+						<Point><X>36.92564350679044</X><Y>-25.016847606031405</Y></Point>
+						<Point><X>36.96294540004908</X><Y>-25.093720552105204</Y></Point>
+						<Point><X>36.94978211140354</X><Y>-25.145884336940995</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675953527800</Id>
+					<Name><![CDATA[island_2_region]]></Name>
+					<X>399</X><Y>264.3333333333333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>39.510681704312546</X><Y>-31.256372056304464</Y></Point>
+						<Point><X>39.50503027525431</X><Y>-31.16484932307889</Y></Point>
+						<Point><X>39.462651103772465</X><Y>-31.12824681889832</Y></Point>
+						<Point><X>39.37498849673435</X><Y>-31.186813021957118</Y></Point>
+						<Point><X>39.38630353102816</X><Y>-31.256372056304464</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1675960920626</Id>
+					<Name><![CDATA[island_1_region]]></Name>
+					<X>367.3333333333333</X><Y>208.66666666666666</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>39.73005308137702</X><Y>-31.119461339347026</Y></Point>
+						<Point><X>39.703021385880376</X><Y>-31.090908530805336</Y></Point>
+						<Point><X>39.67090748873782</X><Y>-31.104086750132268</Y></Point>
+						<Point><X>39.67090748873782</X><Y>-31.123854079122673</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISPoint>
+					<Id>1675988434366</Id>
+					<Name><![CDATA[Island6_east]]></Name>
+					<X>708</X><Y>382</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.785463405127864</Latitude>	
+					<Longitude>-25.066265928507416</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1675988489130</Id>
+					<Name><![CDATA[Island6_west]]></Name>
+					<X>815</X><Y>375</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.815833909465844</Latitude>	
+					<Longitude>-26.06561422746679</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1675988524522</Id>
+					<Name><![CDATA[Island6_north]]></Name>
+					<X>760</X><Y>355</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.94152148495475</Latitude>	
+					<Longitude>-25.560449153267548</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1675988577187</Id>
+					<Name><![CDATA[Island6_south]]></Name>
+					<X>765</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.64212005208439</Latitude>	
+					<Longitude>-25.560449153267548</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044483893</Id>
+					<Name><![CDATA[Island7_west]]></Name>
+					<X>784.4</X><Y>478.8</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>36.97128097264733</Latitude>	
+					<Longitude>-25.226600930318483</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044488703</Id>
+					<Name><![CDATA[Island7_north]]></Name>
+					<X>796.4</X><Y>467.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>37.06948415139936</Latitude>	
+					<Longitude>-25.094818737049113</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044491596</Id>
+					<Name><![CDATA[Island7_east]]></Name>
+					<X>808.8</X><Y>477.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>36.985317768503045</Latitude>	
+					<Longitude>-24.958643804004105</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044497345</Id>
+					<Name><![CDATA[Island7_south]]></Name>
+					<X>797.2</X><Y>487.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>36.89754532490156</Latitude>	
+					<Longitude>-25.086033257497824</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044641841</Id>
+					<Name><![CDATA[Island5_north]]></Name>
+					<X>601.2</X><Y>259.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.87005513329664</Latitude>	
+					<Longitude>-27.238475747564156</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044699915</Id>
+					<Name><![CDATA[Island5_west]]></Name>
+					<X>570</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.71598585296987</Latitude>	
+					<Longitude>-27.563538490961935</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044731361</Id>
+					<Name><![CDATA[Island5_east]]></Name>
+					<X>627.6</X><Y>276.4</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.7262674971341</Latitude>	
+					<Longitude>-26.94855492237155</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044892008</Id>
+					<Name><![CDATA[Island5_south]]></Name>
+					<X>600</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.565018523615535</Latitude>	
+					<Longitude>-27.220904788461574</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044919554</Id>
+					<Name><![CDATA[Island4_west]]></Name>
+					<X>445.2</X><Y>289.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.592490779214764</Latitude>	
+					<Longitude>-28.951644260065933</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676044982435</Id>
+					<Name><![CDATA[Island4_east]]></Name>
+					<X>562.4</X><Y>294.4</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.571887572568116</Latitude>	
+					<Longitude>-27.66457150580178</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045036808</Id>
+					<Name><![CDATA[Island4_south]]></Name>
+					<X>555</X><Y>315</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.272477425348676</Latitude>	
+					<Longitude>-28.25319863573829</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045110968</Id>
+					<Name><![CDATA[Island4_north]]></Name>
+					<X>540</X><Y>335</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.83584629800004</Latitude>	
+					<Longitude>-28.283947814167806</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045151582</Id>
+					<Name><![CDATA[Island3_west]]></Name>
+					<X>490</X><Y>235</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.04767572580418</Latitude>	
+					<Longitude>-28.152165620898444</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045229144</Id>
+					<Name><![CDATA[Island3_east]]></Name>
+					<X>543.2</X><Y>237.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.05790947984913</Latitude>	
+					<Longitude>-27.875423015032766</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045242922</Id>
+					<Name><![CDATA[Island3_north]]></Name>
+					<X>529.2</X><Y>225.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.163571411596976</Latitude>	
+					<Longitude>-28.029168907180363</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045263063</Id>
+					<Name><![CDATA[Island3_south]]></Name>
+					<X>531.2</X><Y>247.2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>38.97599793195642</Latitude>	
+					<Longitude>-28.007205208302135</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045417449</Id>
+					<Name><![CDATA[Island2_west]]></Name>
+					<X>228</X><Y>192.8</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.438907488615286</Latitude>	
+					<Longitude>-31.336901958241484</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045527516</Id>
+					<Name><![CDATA[Island2_east]]></Name>
+					<X>260</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.45162828939196</Latitude>	
+					<Longitude>-31.066016338743346</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045559099</Id>
+					<Name><![CDATA[Island2_south]]></Name>
+					<X>240.66666666666666</X><Y>205.33333333333334</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.332527334777595</Latitude>	
+					<Longitude>-31.197798532012712</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045573048</Id>
+					<Name><![CDATA[Island2_north]]></Name>
+					<X>239.33333333333334</X><Y>176</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.58124769106444</Latitude>	
+					<Longitude>-31.212440997931527</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045957039</Id>
+					<Name><![CDATA[Island1_east]]></Name>
+					<X>275</X><Y>164</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.694290138097685</Latitude>	
+					<Longitude>-31.05320418106438</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676045974210</Id>
+					<Name><![CDATA[Island1_west]]></Name>
+					<X>265</X><Y>167</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.69710679032868</Latitude>	
+					<Longitude>-31.159362058975816</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676047690505</Id>
+					<Name><![CDATA[Island1_north]]></Name>
+					<X>274</X><Y>149</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.75622993270592</Latitude>	
+					<Longitude>-31.100792195300542</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
+				<GISPoint>
+					<Id>1676047714393</Id>
+					<Name><![CDATA[Island1_south]]></Name>
+					<X>298</X><Y>159</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>SOLID</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Latitude>39.63652344088727</Latitude>	
+					<Longitude>-31.102622503540395</Longitude>
+					<Radius>3</Radius>
+					<FillColor>2144175423</FillColor>
+				</GISPoint>
 			</Presentation>
 
 				</GISMap>
@@ -868,12 +2165,69 @@ islands_distance.put("Island7",7000);]]></Body>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>37.08350281312643</Latitude>
-					<Longitude>-29.11987060440595</Longitude>
+					<Latitude>38.2517827230437</Latitude>
+					<Longitude>-29.796352529855373</Longitude>
+				</EmbeddedObjectPresentation>
+				<EmbeddedObjectPresentation>
+					<Id>1675446817058</Id>
+					<Name><![CDATA[SeamountSource_presentation]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>38.43782271425336</Latitude>
+					<Longitude>-28.18511116921578</Longitude>
 				</EmbeddedObjectPresentation>
 			</Presentation>
 
 				</Level>
+				<EmbeddedObjectPresentation>
+					<Id>1675451266556</Id>
+					<Name><![CDATA[AUV_1_presentation]]></Name>
+					<X>-270</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>37.79414196628669</Latitude>
+					<Longitude>-30.02457095026737</Longitude>
+				</EmbeddedObjectPresentation>
+				<EmbeddedObjectPresentation>
+					<Id>1675451417841</Id>
+					<Name><![CDATA[AUV_2_presentation]]></Name>
+					<X>-280</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>39.53044538092407</Latitude>
+					<Longitude>-26.325517997525818</Longitude>
+				</EmbeddedObjectPresentation>
 			</Presentation>
 
 		</ActiveObjectClass>
@@ -881,6 +2235,7 @@ islands_distance.put("Island7",7000);]]></Body>
 		<ActiveObjectClass>
 			<Id>1668126764866</Id>
 			<Name><![CDATA[Agents]]></Name>
+			<Description><![CDATA[set location of current object]]></Description>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -1091,6 +2446,59 @@ islands_distance.put("Island7",7000);]]></Body>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1675448325988</Id>
+					<Name><![CDATA[availability]]></Name>
+					<X>20</X><Y>430</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1675450273002</Id>
+					<Name><![CDATA[currentLocation]]></Name>
+					<Description><![CDATA[currentLocation ]]></Description>
+					<X>20</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
+						<Type><![CDATA[double[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new double[2]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1675450737109</Id>
+					<Name><![CDATA[initialLocation]]></Name>
+					<Description><![CDATA[double array of lat,lon]]></Description>
+					<X>360</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double[]]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1675450737107</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
 				</Variable>
 			</Variables>
 			<Functions>
@@ -1337,7 +2745,7 @@ islands_distance.put("Island7",7000);]]></Body>
 					<Id>1668172181116</Id>
 					<Name><![CDATA[setVerticalSpeed]]></Name>
 					<Description><![CDATA[set the vertical speed of the current agent]]></Description>
-					<X>290</X><Y>100</Y>
+					<X>360</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1354,12 +2762,142 @@ islands_distance.put("Island7",7000);]]></Body>
 					<Id>1668172337564</Id>
 					<Name><![CDATA[getVerticalSpeed]]></Name>
 					<Description><![CDATA[return the speed of the current agent]]></Description>
-					<X>290</X><Y>120</Y>
+					<X>360</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[return this.horizontalSpeed;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[boolean]]></ReturnType>
+					<Id>1675448314726</Id>
+					<Name><![CDATA[getAvailability]]></Name>
+					<X>160</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[return this.availability;]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1675449023534</Id>
+					<Name><![CDATA[setAvailability]]></Name>
+					<X>160</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[newAvailability]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+					<Body><![CDATA[this.availability = newAvailability;]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double[]]]></ReturnType>
+					<Id>1675450297124</Id>
+					<Name><![CDATA[getCurrentLocation]]></Name>
+					<Description><![CDATA[get location of current object]]></Description>
+					<X>190</X><Y>40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[return this.currentLocation;]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1675450297129</Id>
+					<Name><![CDATA[setCurrentLocation]]></Name>
+					<X>190</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[inputCurrentLocation]]></Name>
+						<Type><![CDATA[double[]]]></Type>
+					</Parameter>
+					<Body><![CDATA[this.currentLocation = inputCurrentLocation.clone();]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1675450822745</Id>
+					<Name><![CDATA[initializeAgent]]></Name>
+					<Description><![CDATA[initialize the command ship variable]]></Description>
+					<X>360</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+this.setLocation(new Point(this.initialLocation[0],this.initialLocation[1]));
+this.setCurrentLocation(this.initialLocation);
+
+//this.moveToLocation(initial)
+//this.setSpeed(_initial_speed);
+//traceln(agent.initialLocation);
+//double[] newTarget = new double[]{40.73343,-27.60242};
+/*
+GISNetwork network;
+GISRoute route;
+
+
+
+int loop = 1;
+int count = 0;
+
+while (count < loop){
+	traceln(count);
+	traceln("current location");
+	traceln(this.getCurrentLocation());
+	//this.stop();
+	double rangeMin = 40;
+	double rangeMax = 70;
+	Random r = new Random();
+	double randomLat = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
+	
+	double rangeMin_1 = -30;
+	double rangeMax_2 = -60;
+	double randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) * r.nextDouble();
+	
+	//GISPoint source = new GISPoint(main.map, false, this.currentLocation[0],this.currentLocation[1]);
+	GISPoint target = new GISPoint(main.map, false, randomLat,randomLon);
+	traceln(randomLat);
+	traceln(randomLon);
+	//route = this.generateRoute(source,target,all_islands,island_distance);
+	
+	//route.initialize();
+	
+	//network = new GISNetwork(main.map, String.valueOf(count));
+	//network.addAll(source,target,route);
+	//network.initialize(); 
+	
+	//this.setNetwork(network);
+	
+	this.moveTo(target);
+	double arrival_time = this.timeToArrival();
+	traceln("arrival_time");
+	traceln(arrival_time);
+
+	//wait();
+	//source = target;
+	//TimeUnit.SECONDS.sleep(30);
+	this.setCurrentLocation(new double[]{target.getLatitude(), target.getLongitude()});
+	count++;
+}
+traceln(this.getCurrentLocation());
+//GISNetwork network = new GISNetwork(map,"myNetwork");
+//network.initialize();
+*/
+]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -1434,7 +2972,7 @@ islands_distance.put("Island7",7000);]]></Body>
 					<Code><![CDATA[10]]></Code>
 					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 				</VelocityCode>
-				<OnArrival><![CDATA[traceln(this.getPosition());]]></OnArrival>
+				<OnArrival><![CDATA[//traceln(this.getPosition());]]></OnArrival>
 				<PhysicalLength Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
@@ -1542,6 +3080,22 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Type><![CDATA[String]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1675428746107</Id>
+					<Name><![CDATA[isAssigned]]></Name>
+					<Description><![CDATA[Variable of checking if commandShip is on task]]></Description>
+					<X>100</X><Y>190</Y>
+					<Label><X>10</X><Y>-5</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1668187659225</Id>
 					<Name><![CDATA[initialLocation]]></Name>
@@ -1565,6 +3119,80 @@ islands_distance.put("Island7",7000);]]></Body>
 					</Properties>                 
 				</Variable>
 			</Variables>
+			<StatechartElements>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1676652918551</Id>
+					<Name><![CDATA[idle]]></Name>
+					<X>670</X><Y>130</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<EntryAction><![CDATA[this.setAssigned(false);]]></EntryAction>
+						<FillColor>-256</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1676654929881</Id>
+					<Name><![CDATA[Assigned]]></Name>
+					<X>670</X><Y>210</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<EntryAction><![CDATA[this.setAssigned(true);]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
+					<Id>1676652912450</Id>
+					<Name><![CDATA[statechart]]></Name>
+					<X>710</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<Properties Target="1676652918551">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1676653523602</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>710</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1676652918551" Target="1676654929881" Trigger="condition">
+						<Action><![CDATA[traceln("not empty")]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[main.ActiveScience.getFirst() != null;]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+			</StatechartElements>
 			<Functions>
 				<Function AccessType="public" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -1623,12 +3251,12 @@ islands_distance.put("Island7",7000);]]></Body>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[return this.speed;]]></Body>
 				</Function>
-				<Function AccessType="public" StaticFunction="false">
+				<Function AccessType="private" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[GISRoute]]></ReturnType>
+					<ReturnType><![CDATA[ArrayList<GISPoint>]]></ReturnType>
 					<Id>1668173002294</Id>
-					<Name><![CDATA[generateRoute]]></Name>
-					<X>230</X><Y>250</Y>
+					<Name><![CDATA[calculateLineSegments]]></Name>
+					<X>400</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1642,42 +3270,68 @@ islands_distance.put("Island7",7000);]]></Body>
 						<Type><![CDATA[GISPoint]]></Type>
 					</Parameter>
 					<Parameter>
-						<Name><![CDATA[all_islands]]></Name>
+						<Name><![CDATA[crossedIslands]]></Name>
 						<Type><![CDATA[ArrayList<GISPoint>]]></Type>
 					</Parameter>
 					<Parameter>
-						<Name><![CDATA[islands_distance]]></Name>
-						<Type><![CDATA[HashMap<String,Integer>]]></Type>
+						<Name><![CDATA[direction]]></Name>
+						<Type><![CDATA[String]]></Type>
 					</Parameter>
-					<Body><![CDATA[//Initial Route
-//GISRoute route = main.map.getRoute(this.currentLocation[0], this.currentLocation[1], newLocation[0], newLocation[1]);
-//Check if the commandship has a crash on one of the islands.
-double rangeMin = 40;
-double rangeMax = 45;
-Random r = new Random();
-double randomLat = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
-	
-double rangeMin_1 = -30;
-double rangeMax_2 = -25;
-double randomLon = rangeMin_1 + (rangeMax_2 - rangeMin_1) * r.nextDouble();
-Curve curve = new Curve();
-//GISPoint source = new GISPoint(main.map, true, this.currentLocation[0],this.currentLocation[1]);
-//GISPoint target = new GISPoint(main.map, false, newLocation[0],newLocation[1]);
-GISMarkupSegment segment1 = new GISMarkupSegmentLine(
-                source.getLatitude(), source.getLongitude(), 
-                randomLat, randomLon);
-GISMarkupSegment segment2 = new GISMarkupSegmentLine(
-                randomLat, randomLon, 
-               	target.getLatitude(), target.getLongitude());
-//newLocation[0], newLocation[1]
-curve.addSegment(segment1);
-curve.addSegment(segment2);
-curve.initialize();
-	
-//GISMarkupSegment[] route_arr = route_segments.toArray(new GISMarkupSegment[route_segments.size()]);
-GISRoute route = new GISRoute(main.map, curve,source,target,true);
+					<Body><![CDATA[HashMap<GISPoint,Double> routeSegment = new HashMap<GISPoint,Double>();
 
-return route;]]></Body>
+Curve curve = new Curve();
+ArrayList<GISPoint> sorted_gis_points = new ArrayList<GISPoint>();
+HashMap<String,GISPoint> set1 = null;
+HashMap<String,GISPoint> set2 = null;
+if(direction == "horizontal"){
+	set1 = main.all_islands_east;
+	set2 = main.all_islands_west;
+}
+else{
+	set1 = main.all_islands_north;
+	set2 = main.all_islands_south;	
+}
+
+for(int i = 0 ; i < crossedIslands.size();i++){
+	String island_name = crossedIslands.get(i).getName();
+	if
+	//((source.distance(set1.get(island_name))+target.distance(set1.get(island_name))) < 
+	//	(source.distance(set2.get(island_name))+target.distance(set2.get(island_name)))
+	(
+	(source.distance(set1.get(island_name)) + target.distance(set1.get(island_name))) <
+	(source.distance(set2.get(island_name)) + target.distance(set2.get(island_name)))
+	)
+	
+	
+	{
+		routeSegment.put(set1.get(island_name),source.distance(set1.get(island_name)));
+	}
+	else {
+		routeSegment.put(set2.get(island_name),source.distance(set2.get(island_name)));
+	
+	}
+	/*
+	else{
+		if(target.distance(set1.get(island_name)) <= target.distance(set2.get(island_name))){
+			routeSegment.put(set1.get(island_name),source.distance(set1.get(island_name)));
+		}
+		else{
+			routeSegment.put(set2.get(island_name),source.distance(set2.get(island_name)));
+		}	
+	}
+	*/
+}
+sorted_gis_points = this.sortedHashMap(routeSegment);
+sorted_gis_points.add(0,source);
+sorted_gis_points.add(target);
+int i = 0; 
+while(i < sorted_gis_points.size()-1){
+	curve.addSegment(new GISMarkupSegmentLine(
+                sorted_gis_points.get(i).getLatitude(), sorted_gis_points.get(i).getLongitude(), 
+               	sorted_gis_points.get(i+1).getLatitude(), sorted_gis_points.get(i+1).getLongitude()));
+	i = i+1;
+}
+return sorted_gis_points;]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -1696,16 +3350,18 @@ return route;]]></Body>
 					</Parameter>
 					<Parameter>
 						<Name><![CDATA[island_distance]]></Name>
-						<Type><![CDATA[HashMap<String,Integer>]]></Type>
+						<Type><![CDATA[HashMap<String,Double>]]></Type>
 					</Parameter>
 					<Body><![CDATA[
 this.setLocation(new Point(this.initialLocation[0],this.initialLocation[1]));
 this.setCurrentLocation(this.initialLocation);
+//this.moveToTarget(40,-24.5);
 
 //this.moveToLocation(initial)
 //this.setSpeed(_initial_speed);
 //traceln(agent.initialLocation);
 //double[] newTarget = new double[]{40.73343,-27.60242};
+/*
 GISNetwork network;
 GISRoute route;
 
@@ -1756,7 +3412,7 @@ while (count < loop){
 traceln(this.getCurrentLocation());
 //GISNetwork network = new GISNetwork(map,"myNetwork");
 //network.initialize();
-
+*/
 ]]></Body>
 				</Function>
 				<Function AccessType="public" StaticFunction="false">
@@ -1789,6 +3445,236 @@ traceln(this.getCurrentLocation());
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[return this.profile;]]></Body>
 				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1674818733581</Id>
+					<Name><![CDATA[moveToTarget]]></Name>
+					<X>250</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[lon]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[lat]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Body><![CDATA[//
+
+
+//sample code
+/*	//crreate an gisroute without initialize 
+	//checking if the gisroute is pass
+	// change one of gisroute point
+	if passingIsland == True:{
+		this.moveTo(location of one of Island A edge)
+		this.moveTo(next edge of the Island B	);
+		this.moveTo(targetLocation);
+	}
+*/
+
+Curve curve = new Curve();
+GISPoint source = new GISPoint(main.map,this.getCurrentLocation()[0],this.getCurrentLocation()[1]);
+GISPoint target = new GISPoint(main.map,lon,lat);
+//GISPoint source = new GISPoint(main.map, true, this.currentLocation[0],this.currentLocation[1]);
+//GISPoint target = new GISPoint(main.map, false, newLocation[0],newLocation[1]);
+GISMarkupSegment segment1 = new GISMarkupSegmentLine(
+                this.getCurrentLocation()[0], this.getCurrentLocation()[1], 
+                lon, lat);
+//GISMarkupSegment segment2 = new GISMarkupSegmentLine(
+//                randomLat, randomLon, 
+ //              	target.getLatitude(), target.getLongitude());
+//newLocation[0], newLocation[1]
+curve.addSegment(segment1);
+//curve.addSegment(segment2);
+//curve.initialize();
+traceln("count  = " + curve.getSegmentCount());
+traceln("source = " + source);
+traceln("target = " + target);
+//GISMarkupSegment[] route_arr = route_segments.toArray(new GISMarkupSegment[route_segments.size()]);
+GISRoute route = new GISRoute(main.map, curve,source,target,true);
+ArrayList<GISPoint> Crossed_Islands = this.checkCrossingIslands(route);
+main.map.remove(route);
+String direction = this.checkdirection(source,target);
+traceln("the direction is " + direction);
+if(Crossed_Islands.size() == 0){
+	this.moveTo(lon,lat);
+}
+else{
+	traceln("changed route because of Islands" + Crossed_Islands);
+	//curve = this.calculateLineSegments(source,target,Crossed_Islands,direction);
+	//traceln(curve);
+	//GISRoute route1 = new GISRoute(main.map, curve,source,target,true);
+	//route1.initialize();
+	//main.map.initialize();
+	ArrayList<GISPoint> segements = this.calculateLineSegments(source,target,Crossed_Islands,direction);
+	int i = 0;
+	//this.moveTo(segements.get(1));
+	//this.moveTo(segements.get(2));
+	while (i < segements.size()){
+		
+		
+			//this.isAssigned = true;
+			traceln("Number " + i);
+			traceln("Going " + segements.get(i).getName());
+			
+			this.moveTo(segements.get(i));
+			traceln("current Location " + this.getPosition());
+			traceln("moving " + this.isMoving());
+			traceln("TargetX :" + this.getTargetX());
+			traceln("TargetY :" + this.getTargetY());
+		
+		
+			i = i + 1;
+	}
+	
+	//this.moveTo(lon,lat);
+	
+}
+
+double[] location = new double[]{lon,lat};
+this.setCurrentLocation(location);
+main.map.remove(route);
+]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1674818800271</Id>
+					<Name><![CDATA[moveToTarget]]></Name>
+					<X>400</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[location]]></Name>
+						<Type><![CDATA[double[]]]></Type>
+					</Parameter>
+					<Body><![CDATA[this.moveTo(location[0],location[1]);
+this.setCurrentLocation(location);]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[boolean]]></ReturnType>
+					<Id>1675446280932</Id>
+					<Name><![CDATA[getAssigned]]></Name>
+					<X>430</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[return this.isAssigned;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1675446420980</Id>
+					<Name><![CDATA[setAssigned]]></Name>
+					<X>430</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[newAssignedStatus]]></Name>
+						<Type><![CDATA[boolean]]></Type>
+					</Parameter>
+					<Body><![CDATA[this.isAssigned = newAssignedStatus;]]></Body>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<GISPoint>]]></ReturnType>
+					<Id>1675987640648</Id>
+					<Name><![CDATA[checkCrossingIslands]]></Name>
+					<Description><![CDATA[return islands that current input route is crossing.]]></Description>
+					<X>100</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[route]]></Name>
+						<Type><![CDATA[GISRoute]]></Type>
+					</Parameter>
+					<Body><![CDATA[ArrayList<GISPoint> crossed_islands = new ArrayList<GISPoint>();
+
+for(int i = 0; i < main.all_Islands.size();i++){
+	//traceln(main.all_Islands.get(i).getName());
+	//traceln(route.contains(main.all_Islands.get(i).getLatitude(),main.all_Islands.get(i).getLongitude(),main.islands_distance.get(main.all_Islands.get(i).getName())));
+	if(route.contains(main.all_Islands.get(i).getLatitude(),main.all_Islands.get(i).getLongitude(),main.islands_distance.get(main.all_Islands.get(i).getName()))){
+		crossed_islands.add(main.all_Islands.get(i));
+		traceln(main.all_Islands.get(i).getName());
+	}
+
+}
+
+return crossed_islands;]]></Body>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1675998662594</Id>
+					<Name><![CDATA[checkdirection]]></Name>
+					<X>390</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[source]]></Name>
+						<Type><![CDATA[GISPoint]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[target]]></Name>
+						<Type><![CDATA[GISPoint]]></Type>
+					</Parameter>
+					<Body><![CDATA[double lon_difference = Math.abs(source.getLongitude() - target.getLongitude());
+double lat_difference = Math.abs(source.getLatitude() - target.getLatitude());
+
+if (lon_difference < lat_difference){
+	return "horizontal";
+
+}
+
+return "vertical";]]></Body>
+				</Function>
+				<Function AccessType="private" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<GISPoint>]]></ReturnType>
+					<Id>1676057742385</Id>
+					<Name><![CDATA[sortedHashMap]]></Name>
+					<X>400</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[hm]]></Name>
+						<Type><![CDATA[HashMap<GISPoint,Double>]]></Type>
+					</Parameter>
+					<Body><![CDATA[// Create a list from elements of HashMap
+List<Map.Entry<GISPoint, Double> > list = new LinkedList<Map.Entry<GISPoint, Double> >(hm.entrySet());
+ 
+// Sort the list
+Collections.sort(list, new Comparator<Map.Entry<GISPoint, Double> >() {
+      public int compare(Map.Entry<GISPoint, Double> o1,Map.Entry<GISPoint, Double> o2)
+            {
+                return (o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+         
+        // put data from sorted list to hashmap
+ArrayList<GISPoint> temp = new ArrayList<GISPoint>();
+for (Map.Entry<GISPoint, Double> aa : list) {
+     temp.add(aa.getKey());
+}
+return temp;]]></Body>
+				</Function>
 			</Functions>
 			<AgentLinks>
 				<AgentLink>
@@ -1803,6 +3689,11 @@ traceln(this.getCurrentLocation());
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
+					<StatechartReference>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[CommandShip]]></ClassName>
+						<ItemName><![CDATA[statechart]]></ItemName>
+					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -2040,6 +3931,18 @@ traceln(this.getCurrentLocation());
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1675446571187</Id>
+					<Name><![CDATA[name]]></Name>
+					<X>40</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="private" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
 			</Variables>
 			<Functions>
 				<Function AccessType="public" StaticFunction="false">
@@ -2184,6 +4087,34 @@ this.location = location;]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[return this.location;]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1675446636813</Id>
+					<Name><![CDATA[setScienceName]]></Name>
+					<X>390</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[name]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Body><![CDATA[this.name = name;]]></Body>
+				</Function>
+				<Function AccessType="public" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[String]]></ReturnType>
+					<Id>1675446656196</Id>
+					<Name><![CDATA[getScienceName]]></Name>
+					<X>390</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[return this.name;]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -2409,6 +4340,471 @@ this.location = location;]]></Body>
 					<Dy>10</Dy>
 					<Dz>0</Dz>
 				</Line>
+			</Presentation>
+
+				</Group>
+			</Presentation>
+
+				</Level>
+			</Presentation>
+
+		</ActiveObjectClass>
+		<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClass>
+			<Id>1675427975572</Id>
+			<Name><![CDATA[AUV]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<ExtendsReference>
+				<PackageName><![CDATA[sos_23_fall]]></PackageName>
+				<ClassName><![CDATA[Agents]]></ClassName>
+			</ExtendsReference>
+			<Parameters>
+				<Parameter>
+					<Name><![CDATA[initialLocation]]></Name>
+				</Parameter>
+			</Parameters>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1675427975570</Id>
+				<Name><![CDATA[1675427975570]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor/>
+			<SceneSkybox>null</SceneSkybox>
+			<AgentProperties>
+	 			<SpaceType>CONTINUOUS</SpaceType>			
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<VelocityCode Class="CodeUnitValue">
+					<Code><![CDATA[10]]></Code>
+					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+				</VelocityCode>
+				<PhysicalLength Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalLength>
+				<PhysicalWidth Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalWidth>
+				<PhysicalHeight Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+				</PhysicalHeight>
+			</AgentProperties>
+			<EnvironmentProperties>
+					<EnableSteps>false</EnableSteps>
+					<StepDurationCode Class="CodeUnitValue">
+						<Code><![CDATA[1.0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</StepDurationCode>
+					<SpaceType>CONTINUOUS</SpaceType>
+					<WidthCode><![CDATA[500]]></WidthCode>
+					<HeightCode><![CDATA[500]]></HeightCode>
+					<ZHeightCode><![CDATA[0]]></ZHeightCode>
+					<ColumnsCountCode><![CDATA[100]]></ColumnsCountCode>
+					<RowsCountCode><![CDATA[100]]></RowsCountCode>
+					<NeigborhoodType>MOORE</NeigborhoodType>
+					<LayoutType>USER_DEF</LayoutType>
+					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
+					<NetworkType>USER_DEF</NetworkType>
+					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
+					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+					<MCode><![CDATA[10]]></MCode>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>true</AutoCreate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1675497600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1675427975568</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<CurrentLevel>1675427975571</CurrentLevel>
+			<ConnectionsId>1675427975567</ConnectionsId>
+			<AgentLinks>
+				<AgentLink>
+					<Id>1675427975567</Id>
+					<Name><![CDATA[connections]]></Name>
+					<X>50</X><Y>-50</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<HandleReceiveInConnections>false</HandleReceiveInConnections>
+					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
+					<AgentLinkBidirectional>true</AgentLinkBidirectional>
+					<MessageType><![CDATA[Object]]></MessageType>
+					<LineStyle>SOLID</LineStyle>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineZOrder>UNDER_AGENTS</LineZOrder>
+					<LineArrow>NONE</LineArrow>
+					<LineArrowPosition>END</LineArrowPosition>
+				</AgentLink>
+			</AgentLinks>
+
+			<ContainerLinks>
+				<ContainerLink>
+					<Id>1675449813707</Id>
+					<Name><![CDATA[main]]></Name>
+					<X>50</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[sos_23_fall]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+			</ContainerLinks>
+
+			<Presentation>
+				<Level>
+					<Id>1675427975571</Id>
+					<Name><![CDATA[level]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
+
+			<Presentation>
+				<Group>
+					<Id>1675450215955</Id>
+					<Name><![CDATA[fighter2]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>-16</X><Y>36</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Polyline>
+					<Id>1675450215957</Id>
+					<Name><![CDATA[_ps247]]></Name>
+					<X>15</X><Y>-1</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>0</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-14671840</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>3</Y><Z>0</Z></Point>
+					   <Point><X>-5</X><Y>3</Y><Z>0</Z></Point>
+					   <Point><X>-10</X><Y>5</Y><Z>0</Z></Point>
+					   <Point><X>-14</X><Y>8</Y><Z>0</Z></Point>
+					   <Point><X>-15</X><Y>8</Y><Z>0</Z></Point>
+					   <Point><X>-16</X><Y>5</Y><Z>0</Z></Point>
+					   <Point><X>-20</X><Y>7</Y><Z>0</Z></Point>
+					   <Point><X>-16</X><Y>18</Y><Z>0</Z></Point>
+					   <Point><X>-20</X><Y>17</Y><Z>0</Z></Point>
+					   <Point><X>-27</X><Y>6</Y><Z>0</Z></Point>
+					   <Point><X>-34</X><Y>8</Y><Z>0</Z></Point>
+					   <Point><X>-36</X><Y>7</Y><Z>0</Z></Point>
+					   <Point><X>-36</X><Y>5</Y><Z>0</Z></Point>
+					   <Point><X>-37</X><Y>4</Y><Z>0</Z></Point>
+					   <Point><X>-34</X><Y>4</Y><Z>0</Z></Point>
+					   <Point><X>-34</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>-35</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>-36</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>-36</X><Y>-5</Y><Z>0</Z></Point>
+					   <Point><X>-34</X><Y>-6</Y><Z>0</Z></Point>
+					   <Point><X>-27</X><Y>-4</Y><Z>0</Z></Point>
+					   <Point><X>-20</X><Y>-14</Y><Z>0</Z></Point>
+					   <Point><X>-16</X><Y>-15</Y><Z>0</Z></Point>
+					   <Point><X>-20</X><Y>-4</Y><Z>0</Z></Point>
+					   <Point><X>-16</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>-15</X><Y>-5</Y><Z>0</Z></Point>
+					   <Point><X>-14</X><Y>-5</Y><Z>0</Z></Point>
+					   <Point><X>-10</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Polyline>
+				<Curve ControlPoints="true">
+					<Id>1675450215959</Id>
+					<Name><![CDATA[_ps248]]></Name>
+					<X>15</X><Y>2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-4144960</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>6</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>6</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>-3</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>-3</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Curve>
+				<Polyline>
+					<Id>1675450215961</Id>
+					<Name><![CDATA[_ps249]]></Name>
+					<X>-4</X><Y>-13</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-3407872</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>1</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>-1</X><Y>1</Y><Z>0</Z></Point>
+					   <Point><X>-1</X><Y>0</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Polyline>
+				<Polyline>
+					<Id>1675450215963</Id>
+					<Name><![CDATA[_ps250]]></Name>
+					<X>-5</X><Y>13</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-3407872</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>2</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>1</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>1</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Polyline>
+				<Polyline>
+					<Id>1675450215965</Id>
+					<Name><![CDATA[_ps251]]></Name>
+					<X>-19</X><Y>-2</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-9868951</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>9</X><Y>1</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Polyline>
+				<Polyline>
+					<Id>1675450215967</Id>
+					<Name><![CDATA[_ps252]]></Name>
+					<X>-19</X><Y>1</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-9868951</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>9</X><Y>1</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Polyline>
+				<Polyline>
+					<Id>1675450215969</Id>
+					<Name><![CDATA[_ps253]]></Name>
+					<X>-10</X><Y>-3</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-12566464</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>3</X><Y>3</Y><Z>0</Z></Point>
+					   <Point><X>25</X><Y>3</Y><Z>0</Z></Point>
+					   <Point><X>25</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>20</X><Y>2</Y><Z>0</Z></Point>
+					   <Point><X>14</X><Y>1</Y><Z>0</Z></Point>
+					   <Point><X>11</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>10</X><Y>1</Y><Z>0</Z></Point>
+					   <Point><X>4</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>-1</X><Y>-2</Y><Z>0</Z></Point>
+					   <Point><X>-2</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>-9</X><Y>-1</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Polyline>
+				<Curve ControlPoints="true">
+					<Id>1675450215971</Id>
+					<Name><![CDATA[_ps254]]></Name>
+					<X>10</X><Y>1</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<BeginArrowSize>1</BeginArrowSize>
+					<BeginArrowStyle>0</BeginArrowStyle>
+					<EndArrowSize>1</EndArrowSize>
+					<EndArrowStyle>0</EndArrowStyle>
+					<FillColor>-4144960</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Points>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>-3</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>-3</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>4</X><Y>-1</Y><Z>0</Z></Point>
+					   <Point><X>4</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>1</X><Y>0</Y><Z>0</Z></Point>
+					   <Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+					</Points>
+					<Closed>true</Closed>
+				</Curve>
 			</Presentation>
 
 				</Group>
