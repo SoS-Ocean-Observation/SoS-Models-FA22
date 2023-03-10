@@ -24,14 +24,27 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 	![the command ship state flow chart](https://user-images.githubusercontent.com/112024195/224406542-93bacc56-f6cc-4e04-a570-e6ae914bbd15.JPG)
 	* The Variables Stated Under the Command Ship
 		* private double[] **currentLocation** : represents the current location in (lon, lat) of the command ship, the variable would be updated once the command ship is assigned and reaches a new destination.
-		* private double **speed** : represnets the speed of the command ship in km / h
+		* private double **speed** : represents the speed of the command ship in km / h
 		* private String **profile** : the commandship profile, define how command ship reacted if there are any scientific events near by or there is none.
 	* The Functions Stated Under the Command Ship
 		* public void **setCurrentLocation( double[] inputCurrentLocation )**: set the current location of the command ship
 		* public double[] **getCurrentLocation()**: get the current location of the command ship
 		* public void **setSpeed( double inputSpeed )**: set the speed of the command ship
-		* public double **getSpeed() **: get the speed of the command ship
+		* public double **getSpeed()**: get the speed of the command ship
 		* public void **setProfile( String profile )**: set the profile the command ship
 		* public String **getProfile()**: get the profile of the command ship
+		* private ArrayList<GISPoint> **checkCrossingIslands(GISRoute Route)**: check the input route if it pass through any indicated islands, return an arraylist of crossed islands in gispoint format.
+		* private String **checkdirection(GISPoint source, GISPoint target)**: check the direction from source to target, "horizontal - north/south", "verical - east/west"
+		* private ArrayList<GISPoint> **calculateLineSegments(GISPoint source, GISPoint Target, ArrayList<GISPoint> crossedIslands, String direction)**: calculate the new route if the directed route crossed any islands, the new line segments is sorted based on the distance to the source.
+		* private ArrayList<GISPoint> **sortedHashMap (HashMap<GISPoint,Double> hm)**: helper function for sorting the line segments based on the distance from segments to the source
+	* Logic behind generating the route(**TODO**)
+* The Science
+	* The science type agent represents science events shown on the map, it can be fault, front, and seamount scientific events (parent type)
+	* The Variables Stated Under the Science
+		* private double **Duration**: represents the duration of the scientific event will last in hours
+		* private double **Volume**: represents how much data can be collected by agents from this scientific event
+		* private String **type**: represents the type of this scientific event, it can be seamount, fault, and front
+		* private double[] **location**: represents the location in (lon,lat) of the scientific event.
+		
 
 
