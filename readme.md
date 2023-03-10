@@ -26,4 +26,12 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* private double[] **currentLocation** : represents the current location in (lon, lat) of the command ship, the variable would be updated once the command ship is assigned and reaches a new destination.
 		* private double **speed** : represnets the speed of the command ship in km / h
 		* private String **profile** : the commandship profile, define how command ship reacted if there are any scientific events near by or there is none.
+	* The Functions Stated Under the Command Ship
+		* public void **setCurrentLocation( double[] inputCurrentLocation )**: set the current location of the command ship
+		* public double[] **getCurrentLocation()**: get the current location of the command ship
+		* public void **setSpeed( double inputSpeed )**: set the speed of the command ship
+		* public double **getSpeed() **: get the speed of the command ship
+		* public void **setProfile( String profile )**: set the profile the command ship
+		* public String **getProfile()**: get the profile of the command ship
+
 
