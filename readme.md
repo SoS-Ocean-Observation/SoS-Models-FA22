@@ -22,4 +22,8 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 	* The command ship acts as the recharging station and data center for AUVs and UAVs agents to drop their collected data.
 	*  State Flow Chart:
 	![the command ship state flow chart](https://user-images.githubusercontent.com/112024195/224406542-93bacc56-f6cc-4e04-a570-e6ae914bbd15.JPG)
+	* The Variables Stated Under the Command Ship
+		* private double[] **currentLocation** : represents the current location in (lon, lat) of the command ship, the variable would be updated once the command ship is assigned and reaches a new destination.
+		* private double **speed** : represnets the speed of the command ship in km / h
+		* private String **profile** : the commandship profile, define how command ship reacted if there are any scientific events near by or there is none.
 
