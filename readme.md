@@ -48,3 +48,18 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* private String **name**: the name of the scientific event
 
 
+Center of mass, 
+
+shallow water, deep water, 
+
+shallow = aerial = UAV
+deep = underwater = AUV
+
+shallow water event: only UAV assigneed
+deep water : only AUV assignmed 
+
+shallow water AUV left, consider as missed 
+
+fixed, random, center of mass
+
+data storage never resets. 
