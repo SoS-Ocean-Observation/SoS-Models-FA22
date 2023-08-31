@@ -26,6 +26,14 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* private double[] **currentLocation** : represents the current location in (lon, lat) of the command ship, the variable would be updated once the command ship is assigned and reaches a new destination.
 		* private double **speed** : represents the speed of the command ship in km / h
 		* private String **profile** : the commandship profile, define how command ship reacted if there are any scientific events near by or there is none.
+  		* private boolean **isAssigned** : indicates if the command ship is moving towards the target location ( center of the mass ).
+    		* private double[] **movingTarget** : represents the target location that the command ship is pursuing.
+      		* private ArrayList<Agent> **uavDocked** : represents any docked uav holding by the command ship, useful under the profile of center of mass.
+        	* private ArrayList<Agent> **auvDock** : represents any docked auv holding by the command ship, useful under the profile of center of mass.
+         	* private ArrayList<Agent> **uavReturn** : represents any returning uav heading to the command ship, making sure they change their destination when the center of mass is changed.
+          	* private ArrayList<Agent> **auvReturn** : represents any returning auv heading to the command ship, making sure they change their destination when the center of mass is changed.
+          	* private ArrayList<Science> **activeScience** : represents any active science at the current time, the center of mass is recalculated whenever a science event is added or removed.
+          	* private ArrayList<GISPoitn> **linePlanning**: an arrayList contains all the GIS Points that the command ship needs heading in order to arrive at the destination.
 	* The Functions Stated Under the Command Ship
 		* public void **setCurrentLocation( double[] inputCurrentLocation )**: set the current location of the command ship
 		* public double[] **getCurrentLocation()**: get the current location of the command ship
@@ -33,6 +41,10 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* public double **getSpeed()**: get the speed of the command ship
 		* public void **setProfile( String profile )**: set the profile the command ship
 		* public String **getProfile()**: get the profile of the command ship
+  		* public boolean **getAssigned()**: check if the command ship is assigned or not.
+    		* public void **setAssigned()**: set the assigned status of the command ship.
+      		* public void **getMovingTarget()**:
+        	* publci void **setMovingTarget()**:  	
 		* private ArrayList<GISPoint> **checkCrossingIslands(GISRoute Route)**: check the input route if it pass through any indicated islands, return an arraylist of crossed islands in gispoint format.
 		* private String **checkdirection(GISPoint source, GISPoint target)**: check the direction from source to target, "horizontal - north/south", "verical - east/west"
 		* private ArrayList<GISPoint> **calculateLineSegments(GISPoint source, GISPoint Target, ArrayList<GISPoint> crossedIslands, String direction)**: calculate the new route if the directed route crossed any islands, the new line segments is sorted based on the distance to the source.
