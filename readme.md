@@ -42,9 +42,20 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* public void **setProfile( String profile )**: set the profile the command ship
 		* public String **getProfile()**: get the profile of the command ship
   		* public boolean **getAssigned()**: check if the command ship is assigned or not.
-    		* public void **setAssigned()**: set the assigned status of the command ship.
-      		* public void **getMovingTarget()**:
-        	* publci void **setMovingTarget()**:  	
+    		* public void **setAssigned(boolean newAssignedStatus)**: set the assigned status of the command ship.
+      		* public void **getMovingTarget()**: get the moving target of the command ship in the lat/lon format.
+        	* public void **setMovingTarget(double[] inputCurrentTarget)**: set the moving target of the command ship in the lat/lon format.
+         	* public void **addDockedUAV(Agent incoming_uav)**: add an uav to dock at the command ship.
+          	* public void **removeDockedUAV(Agent outcoming_uav)**: unload an uav from the command ship.
+          	* public void **addDockedAUV(Agent incoming_auv)**: add an auv to dock at the command ship.
+          	* public void **removeDockedAUV(Agent outcoming_auv)**: unload an auv from the command ship.
+          	* public void **addReturnUAV(Agent return_uav)**: add an UAV agent to the arraylist when the agent starts heading back to the command ship.
+          	* public void **removeReturnUAV(Agent return_uav)**: once an UAV agent arrives at the command ship, remove it from the returning list of uav.
+          	* public void **addReturnAUV(Agent return_auv)**: add an AUV agent to the arraylist when the agent starts heading back to the command ship.
+          	* public void **removeReturnAUV(Agent return_auv)**: once an AUV agent arrives at the command ship, remove it from the returning list of auv.
+          	* public void **addActiveScience(Science science)**: add an active/valid science event to the list to calculate the center of mass.
+          	* public void **removeActiveScience(Science science)**: remove an deactive science event from the list to calculate the center of mass.
+          	* public void **move_center_of_profile()**: recalculate the center of mass and assign its value to the variable "center"
 		* private ArrayList<GISPoint> **checkCrossingIslands(GISRoute Route)**: check the input route if it pass through any indicated islands, return an arraylist of crossed islands in gispoint format.
 		* private String **checkdirection(GISPoint source, GISPoint target)**: check the direction from source to target, "horizontal - north/south", "verical - east/west"
 		* private ArrayList<GISPoint> **calculateLineSegments(GISPoint source, GISPoint Target, ArrayList<GISPoint> crossedIslands, String direction)**: calculate the new route if the directed route crossed any islands, the new line segments is sorted based on the distance to the source.
