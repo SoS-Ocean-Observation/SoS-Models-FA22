@@ -103,8 +103,23 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
        		* private double **batteryCapacity**: the battery capacity of the agent.
          	* private double **rechargeRate**: the recharge rate of the battery when recharging.
 	        * private double **dischargeRate**: the discharge rate of the battery while not recharing.
-         	*  
- 	
+         	* private double **storageCapacity**: the storage capacity of the agent.
+            	* private double **collectionRate**: the collection rate of the agent from the scientific event.
+             	* private double **offloadRate**: the offload rate of the agent (to) the Pearl or the command ship.
+                * private boolean **availability**: the availability of the agent, true (good for the assignment), false(when not)
+ 		* private boolean **chargingState**: indicates if the agent is running recharging or discharing.
+   		* private double **currentBattery**: represents the current battery level.
+     		* private double **currentDataStorage**: represents the current data storage level.
+       		* private double **maxDistance**: the maximum distance that agent can travel with the current battery level.
+         	* private Science **currentScience**: the current science that agent is pursing.
+	* The functions stated under the Agent:
+ 		* private void **setCurrentLocation(double[] inputCurrentLocation)**: set the current location of the agent.
+  	 	* private double[] **getCurrentLocation()**: get the current location of the agent.
+     		* private void **setType(String inputType)**: set the agent type of the agent.
+       		* private String **getType()**: get the agent's type
+         	* private void **setSpeed(double inputSpeed)**: set the speed of the agent.
+          	* private double **getSpeed()**: get the speed of the agent.
+          	* private void **setBatteryCapacity(double intputBatteryCapacity)**: set the battery capacity of the agent. 
 
 
 Center of mass, 
