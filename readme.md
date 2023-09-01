@@ -68,7 +68,21 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* private double **Volume**: represents how much data can be collected by agents from this scientific event
 		* private String **type**: represents the type of this scientific event, it can be seamount, fault, and front
 		* private double[] **location**: represents the location in (lon,lat) of the scientific event
-		* private String **name**: the name of the scientific event
+		* private String **name**: the name of the scientific event。
+  		* private boolean **status**:the status of the Science, used for command ship to determine if the science is going to be removed in the active-science arrayList or to be added.
+    	* The Functions stated Under the Science:
+     		* public void **setDuration(double duration)**: set the duration in hours for an scientific event.
+       		* public double **getDuration()**: get the duration in hours of an scientific event.
+         	* public void **setDataVolume(double dataVolume)**: set the data volume of an scientific event.
+          	* public double **getDataVolume()**: get the data volume of an scientific event.
+          	* public void **setType(String type)**: set the type of the scientific event.
+          	* public String **getType()**: get the type of the scientific event.
+          	* public void **setLocation(double lon, double lat)**: set the location of the scientific event.
+          	* public void **setLocation(double[] location)**: set the location of the scientific event.
+          	* public double[] **getLocation()**: get the location of the scientific event.
+          	* public void **setStatus(boolean status)**: set the status of the scientific event.
+          	* public boolean **getStatus()**: return the status of the scientific event.
+          
 
 
 Center of mass, 
