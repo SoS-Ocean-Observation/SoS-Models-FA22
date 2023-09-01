@@ -61,6 +61,7 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
 		* private ArrayList<GISPoint> **calculateLineSegments(GISPoint source, GISPoint Target, ArrayList<GISPoint> crossedIslands, String direction)**: calculate the new route if the directed route crossed any islands, the new line segments is sorted based on the distance to the source.
 		* private ArrayList<GISPoint> **sortedHashMap (HashMap<GISPoint,Double> hm)**: helper function for sorting the line segments based on the distance from segments to the source
 	* Logic behind generating the route(**TODO**)
+
 * The Science
 	* The science type agent represents science events shown on the map, it can be fault, front, and seamount scientific events (parent type)
 	* The Variables Stated Under the Science
@@ -82,7 +83,28 @@ Hi In this document , I will summierzie every details for the Project Sos Fall 2
           	* public double[] **getLocation()**: get the location of the scientific event.
           	* public void **setStatus(boolean status)**: set the status of the scientific event.
           	* public boolean **getStatus()**: return the status of the scientific event.
-          
+          	* public void **setScienceName(String name)**: set the science name
+          	* public String **getScienceName()**: get the science name
+	* The State Flows stated Under the Science:
+		* **enter**: the starting point of the flow, when the agents are arriving at the science location, they would enter the state. 		
+    		* **collectedData**: the starting point of the extraction process.
+      			*  Queue capacity: 100
+         		*  Delay time: agent.getCurrentScience().getDataVolume()/agent.getCollectionRate() // the collecion time for this agent & the scientific event
+           		*  On at exit: agent.setCurrentDataStorage(agent.getCurrentDataStorage() + agent.getCurrentScience().getDataVolume());
+	  	* **exit** : the end of collection process.
+   			*  On exit: send("collected completed",agent); // send the message to the agent and the agent moves to the next stage (returning to the commandhship/Pearl)
+  
+*  The Agent:
+	* The Agent type is the parental class of UAV and AUV.
+	* The variables stated under the Agent:
+ 		* private double[] **currentLocation**: the current location of the agent
+   		* private String **type**： the type of the agent, UAV or AUV.
+     		* private double **speed** ： the speed of the agent.
+       		* private double **batteryCapacity**: the battery capacity of the agent.
+         	* private double **rechargeRate**: the recharge rate of the battery when recharging.
+	        * private double **dischargeRate**: the discharge rate of the battery while not recharing.
+         	*  
+ 	
 
 
 Center of mass, 
